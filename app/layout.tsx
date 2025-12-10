@@ -18,7 +18,12 @@ export const metadata: Metadata = {
   description:
     "Reverta Sustainable Solutions - Secure data destruction and responsible recycling for a sustainable future. ISO certified e-waste management.",
   keywords: ["e-waste", "recycling", "electronic waste", "data destruction", "sustainability", "circular economy"],
-    generator: 'v0.app'
+    generator: 'v0.app',
+  icons: {
+    icon: "/Reverta_fav.png",
+    shortcut: "/Reverta_fav.png",
+    apple: "/Reverta_fav.png",
+  },
 }
 
 export const viewport: Viewport = {

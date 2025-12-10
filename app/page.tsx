@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero"
 import { StatsBar } from "@/components/stats-bar"
 import { About } from "@/components/about"
 import { Services } from "@/components/services"
+import { Partners } from "@/components/partners"
 import { HowItWorks } from "@/components/how-it-works"
 import { Impact } from "@/components/impact"
 import { Locator } from "@/components/locator"
@@ -18,6 +19,7 @@ export default function Home() {
       <StatsBar />
       <About />
       <Services />
+      <Partners />
       <HowItWorks />
       <Impact />
       <Locator />
