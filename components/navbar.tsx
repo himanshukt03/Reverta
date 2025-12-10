@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, Leaf, ArrowRight } from "lucide-react"
+import { Menu, X, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/#impact", label: "Impact" },
   { href: "/blog", label: "Blog" },
   { href: "/#locator", label: "Locator" },
+  { href: "/#contact", label: "Contact" },
 ]
 
 export function Navbar() {
@@ -36,11 +37,8 @@ export function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/30 transition-shadow">
-              <Leaf className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <span className="text-xl font-bold text-foreground tracking-tight">Reverta</span>
+          <Link href="/" className="flex items-center">
+            <img src="/Reverta_Logo.png" alt="Reverta logo" className="h-11 w-auto object-contain" />
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
