@@ -180,21 +180,6 @@ export function Locator() {
           </motion.div>
         )}
 
-        {/* Map placeholder */}
-        {showResults && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="mt-8 aspect-[21/9] rounded-2xl lg:rounded-3xl overflow-hidden bg-muted border border-border"
-          >
-            <img
-              src="/clean-minimal-map-of-india-with-location-pins-mode.jpg"
-              alt="Collection centers map"
-              className="w-full h-full object-cover opacity-80"
-            />
-          </motion.div>
-        )}
       </div>
     </section>
   )
