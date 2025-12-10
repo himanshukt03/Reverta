@@ -24,6 +24,8 @@ import {
   Battery,
   Monitor,
   Printer,
+  Home,
+  Gamepad2,
 } from "lucide-react"
 
 /* ───────────────────────────────────────── data ─────────────────────────────────────────── */
@@ -81,6 +83,8 @@ const acceptedItems = [
   { icon: Printer, label: "Printers & Peripherals" },
   { icon: Battery, label: "Batteries & UPS" },
   { icon: Cpu, label: "Circuit Boards" },
+  { icon: Home, label: "Home Appliances" },
+  { icon: Gamepad2, label: "Electric toys & small e-waste" },
 ]
 
 const credentials = [
@@ -209,7 +213,7 @@ export default function AboutPage() {
             <span className="text-xs font-bold tracking-[0.3em] uppercase text-primary">What We Recycle</span>
             <h2 className="mt-3 text-3xl font-bold text-foreground">Accepted Items</h2>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 justify-items-center">
             {acceptedItems.map((item, i) => (
               <motion.div
                 key={item.label}
@@ -220,7 +224,7 @@ export default function AboutPage() {
                 className="flex flex-col items-center gap-3 rounded-2xl border border-border/60 bg-card p-5 text-center"
               >
                 <item.icon className="w-8 h-8 text-primary" />
-                <span className="text-xs font-medium text-foreground">{item.label}</span>
+                <span className="text-xs font-medium text-foreground text-center">{item.label}</span>
               </motion.div>
             ))}
           </div>
