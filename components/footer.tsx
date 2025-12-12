@@ -8,19 +8,22 @@ import { Button } from "@/components/ui/button"
 import { useState } from "react"
 
 const quickLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Impact", href: "#impact" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: "/#services" },
+  { label: "How It Works", href: "/#process" },
+  { label: "Impact", href: "/#impact" },
+  { label: "Resource Center", href: "/blog" },
+  { label: "Find Locations", href: "/#locator" },
+  { label: "Contact", href: "/#contact" },
 ]
 
 const services = [
-  { label: "E-Waste Collection", href: "#services" },
-  { label: "Data Destruction", href: "#services" },
-  { label: "Recycling", href: "#services" },
-  { label: "Refurbishment", href: "#services" },
+  { label: "E-Waste Collection", href: "/#services" },
+  { label: "Data Destruction", href: "/#services" },
+  { label: "Recycling & Recovery", href: "/#services" },
+  { label: "Asset Refurbishment", href: "/#services" },
+  { label: "Compliance Docs", href: "/#services" },
 ]
 
 const legal = [
@@ -58,11 +61,8 @@ export function Footer() {
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Brand section */}
           <div className="col-span-2 lg:col-span-4">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                <Leaf className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-bold">Reverta</span>
+            <Link href="/" className="inline-block">
+              <img src="/logos/reverta_fullLogoWhite.png" alt="Reverta logo" className="h-10 w-auto object-contain" />
             </Link>
             <p className="mt-5 text-sm opacity-70 max-w-sm leading-relaxed">
               Reverta Sustainable Solutions Private Limited. Building a sustainable future through responsible e-waste

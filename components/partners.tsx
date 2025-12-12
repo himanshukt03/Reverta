@@ -31,7 +31,7 @@ export function Partners() {
             transition={{ duration: 0.5, delay: 0.05 }}
             className="mt-3 text-4xl sm:text-5xl font-extrabold text-foreground"
           >
-            NgreenTech
+            Our Collaborators
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 12 }}

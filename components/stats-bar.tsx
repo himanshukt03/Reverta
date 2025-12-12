@@ -13,8 +13,8 @@ const stats = [
   },
   {
     icon: Shield,
-    value: "50,000+ Tonnes",
-    label: "E-Waste Recycled Yearly",
+    value: "Zero Landfill",
+    label: "Our Commitment to You",
     color: "text-primary",
     bg: "bg-primary/10",
   },

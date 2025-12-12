@@ -34,70 +34,47 @@ export function Hero() {
         className="absolute top-1/2 left-1/3 w-64 h-64 bg-primary/5 rounded-full blur-3xl hidden lg:block"
       />
 
-      {/* ====== MOBILE HERO (Completely different layout) ====== */}
-      <div className="lg:hidden relative z-10 flex-1 flex flex-col pt-20">
-        {/* Mobile Hero Content */}
-        <div className="flex-1 flex flex-col justify-center px-5 py-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/15 to-secondary/15 backdrop-blur-sm text-primary px-4 py-2.5 rounded-full text-sm font-semibold mb-6 border border-primary/20"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-              </span>
-              India's Trusted E-Waste Partner
-            </motion.div>
+      {/* ====== MOBILE HERO (Full background image like Runway) ====== */}
+      <div className="lg:hidden relative z-10 flex flex-col min-h-[100dvh]">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/modern-sustainable-recycling-facility-with-green-t.jpg"
+            alt="Reverta sustainable recycling"
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Stronger gradient for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/40 to-transparent" />
+        </div>
 
-            <h1 className="text-[2.5rem] leading-[1.1] font-bold text-foreground tracking-tight">
+        {/* Content */}
+        <div className="relative z-10 flex-1 flex flex-col justify-center px-6 pt-20 pb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-md"
+          >
+            <h1 className="text-[2.75rem] sm:text-5xl font-extrabold text-foreground leading-[1.05] tracking-tight">
               Recycle
-              <span className="block text-primary">Responsibly</span>
+              <span className="block text-primary">Responsibly.</span>
             </h1>
 
-            <p className="mt-5 text-base text-muted-foreground leading-relaxed max-w-sm mx-auto">
-              Reverta Sustainable Solutions Private Limited company is committed to building a sustainable future by
-              responsibly collecting, recycling, and repurposing electronic waste.
+            <p className="mt-4 text-[15px] text-foreground/70 leading-relaxed">
+              Reverta is committed to building a sustainable future by responsibly collecting, recycling, and repurposing electronic waste.
             </p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            className="flex flex-wrap justify-center gap-2 mt-6"
-          >
-            {[
-              { icon: Shield, label: "100% Secure" },
-              { icon: Leaf, label: "Eco-Certified" },
-              { icon: Sparkles, label: "Free Pickup" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="flex items-center gap-1.5 bg-card/80 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-medium text-foreground border border-border"
-              >
-                <item.icon className="w-3.5 h-3.5 text-primary" />
-                {item.label}
-              </div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="mt-8 flex flex-col gap-3 px-4"
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="mt-8 flex flex-col gap-3 max-w-md"
           >
             <Button
               size="lg"
-              className="w-full h-14 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground text-base font-semibold shadow-lg shadow-primary/25"
+              className="w-full h-[52px] rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-[15px] font-semibold shadow-lg shadow-primary/30"
               asChild
             >
               <Link href="#contact">
@@ -108,64 +85,15 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="w-full h-14 rounded-2xl border-2 border-border text-foreground hover:bg-muted text-base font-medium bg-card/50 backdrop-blur-sm"
+              className="w-full h-[52px] rounded-xl border-2 border-foreground/20 bg-background/50 backdrop-blur-sm text-foreground text-[15px] font-semibold hover:bg-background/70"
               asChild
             >
-              <Link href="#process">
-                <Play className="mr-2 w-4 h-4" />
-                See How It Works
+              <Link href="#services">
+                Our Services
               </Link>
             </Button>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="relative px-5 pb-6"
-        >
-          <div className="relative bg-gradient-to-br from-primary/10 via-card to-secondary/10 rounded-3xl p-5 border border-border/50 backdrop-blur-sm">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Recycle className="w-8 h-8 text-primary" />
-              </div>
-              <div className="flex-1">
-                <p className="text-2xl font-bold text-foreground">50,000+</p>
-                <p className="text-sm text-muted-foreground">Tonnes recycled responsibly</p>
-              </div>
-            </div>
-            <div className="mt-4 pt-4 border-t border-border/50 grid grid-cols-3 gap-3">
-              <div className="text-center">
-                <p className="text-lg font-bold text-foreground">10+</p>
-                <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Years</p>
-              </div>
-              <div className="text-center border-x border-border/50">
-                <p className="text-lg font-bold text-foreground">500+</p>
-                <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Clients</p>
-              </div>
-              <div className="text-center">
-                <p className="text-lg font-bold text-foreground">ISO</p>
-                <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Certified</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="flex justify-center pb-4"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-            className="p-2"
-          >
-            <ChevronDown className="w-5 h-5 text-muted-foreground" />
-          </motion.div>
-        </motion.div>
       </div>
 
       {/* ====== DESKTOP HERO ====== */}
@@ -239,8 +167,8 @@ export function Hero() {
                       <Recycle className="w-6 h-6 text-primary-foreground" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-foreground">50k+</p>
-                      <p className="text-xs text-muted-foreground">Tonnes Recycled</p>
+                      <p className="text-2xl font-bold text-foreground">100%</p>
+                      <p className="text-xs text-muted-foreground">Certified Recycling</p>
                     </div>
                   </div>
                 </motion.div>
@@ -251,8 +179,7 @@ export function Hero() {
                   transition={{ delay: 0.8 }}
                   className="absolute -bottom-4 -left-4 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-2xl px-6 py-4 shadow-xl"
                 >
-                  <p className="text-xs font-medium opacity-90">Certified Partner</p>
-                  <p className="text-lg font-bold">ISO 14001 & 27001</p>
+                  <p className="text-lg font-bold">ISO Certified Processes</p>
                 </motion.div>
               </div>
             </motion.div>

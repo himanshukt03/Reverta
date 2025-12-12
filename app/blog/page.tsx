@@ -2,6 +2,7 @@
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { FloatingButtons } from "@/components/floating-buttons"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link"
@@ -157,6 +158,7 @@ export default function BlogPage() {
       </section>
 
       <Footer />
+      <FloatingButtons />
     </main>
   )
 }
