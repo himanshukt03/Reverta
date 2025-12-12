@@ -5,10 +5,10 @@ import { motion, useInView } from "framer-motion"
 import { Quote, ChevronLeft, ChevronRight, TrendingUp, Recycle, Leaf, Users, TreePine } from "lucide-react"
 
 const metrics = [
-  { value: 50000, suffix: "+", label: "Tonnes Collected", unit: "annually", icon: Recycle },
-  { value: 120000, suffix: "+", label: "CO₂ Saved", unit: "kg reduced", icon: Leaf },
-  { value: 500, suffix: "+", label: "Green Jobs", unit: "created", icon: Users },
-  { value: 25000, suffix: "+", label: "Trees Equivalent", unit: "preserved", icon: TreePine },
+  { value: 50000, suffix: "+", label: "Tonnes of E-Waste", unit: "to recycle per year", icon: Recycle },
+  { value: 50000, suffix: "+", label: "Metric Tons CO₂", unit: "to save annually", icon: Leaf },
+  { value: 10000, suffix: "+", label: "Green Jobs", unit: "to create", icon: Users },
+  { value: 5000, suffix: "+", label: "Trees Equivalent", unit: "to preserve", icon: TreePine },
 ]
 
 const testimonials = [
@@ -42,8 +42,8 @@ function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: strin
 
   useEffect(() => {
     if (isInView) {
-      const duration = 2000
-      const steps = 60
+      const duration = 1000
+      const steps = 40
       const increment = value / steps
       let current = 0
 
@@ -103,16 +103,13 @@ export function Impact() {
             viewport={{ once: true }}
             className="text-center max-w-2xl mx-auto"
           >
-            <span className="inline-flex items-center gap-2 bg-white/15 backdrop-blur px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6">
+            <span className="inline-flex items-center gap-2 bg-white/15 backdrop-blur px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-8">
               <TrendingUp className="w-4 h-4" />
-              Measurable Environmental Impact
+              Our Aspirational Impact
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
-              Making a Real Difference
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
+              Building a Sustainable Future
             </h2>
-            <p className="mt-5 text-base sm:text-lg opacity-90 max-w-xl mx-auto">
-              Every device recycled contributes to a cleaner, greener future for generations to come.
-            </p>
           </motion.div>
 
           {/* Stats grid */}

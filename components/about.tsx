@@ -9,22 +9,18 @@ const features = [
   {
     icon: Award,
     title: "Government Authorized",
-    description: "Fully licensed and certified e-waste recycler under all applicable regulations",
   },
   {
     icon: Shield,
-    title: "Military-Grade Security",
-    description: "NSA-standard data destruction protocols with certificate of destruction",
+    title: "ISO-Compliant Processes",
   },
   {
     icon: Leaf,
     title: "Zero Landfill Policy",
-    description: "100% of collected materials are recycled, refurbished, or properly disposed",
   },
   {
     icon: Zap,
     title: "Fast Processing",
-    description: "48-hour pickup and rapid processing with real-time tracking",
   },
 ]
 
@@ -48,27 +44,11 @@ export function About() {
               <img
                 src="/professional-recycling-facility-team-sorting-elect.jpg"
                 alt="Reverta recycling facility"
-                className="object-cover w-full h-full"
+                className="object-cover object-right w-full h-full"
               />
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
+              {/* Softer overlay to reveal more image on the right */}
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 via-transparent to-transparent" />
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="absolute -bottom-6 -right-4 lg:-right-8 bg-card rounded-2xl p-5 lg:p-6 shadow-xl border border-border"
-            >
-              <p className="text-3xl lg:text-4xl font-bold text-primary">10+</p>
-              <p className="text-sm text-muted-foreground mt-1">Years of Excellence</p>
-              <div className="flex items-center gap-1 mt-2">
-                {[...Array(5)].map((_, i) => (
-                  <div key={i} className="w-2 h-2 rounded-full bg-primary" />
-                ))}
-              </div>
-            </motion.div>
 
             <div className="absolute -top-3 -left-3 w-20 h-20 bg-primary/10 rounded-2xl -z-10 sm:hidden" />
           </motion.div>
@@ -96,7 +76,7 @@ export function About() {
               repurposing.
             </p>
 
-            <div className="mt-10 grid sm:grid-cols-2 gap-5">
+            <div className="mt-10 grid grid-cols-2 gap-4">
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.title}
@@ -104,17 +84,12 @@ export function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group"
+                  className="flex items-center gap-3"
                 >
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <feature.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground text-sm">{feature.title}</h3>
-                      <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{feature.description}</p>
-                    </div>
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <feature.icon className="w-4 h-4 text-primary" />
                   </div>
+                  <span className="font-medium text-foreground text-sm">{feature.title}</span>
                 </motion.div>
               ))}
             </div>
