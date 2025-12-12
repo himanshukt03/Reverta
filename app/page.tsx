@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
-import { StatsBar } from "@/components/stats-bar"
 import { About } from "@/components/about"
 import { Services } from "@/components/services"
 import { Partners } from "@/components/partners"
@@ -10,13 +9,13 @@ import { Locator } from "@/components/locator"
 import { Contact } from "@/components/contact"
 import { Faq } from "@/components/faq"
 import { Footer } from "@/components/footer"
+import { FloatingButtons } from "@/components/floating-buttons"
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
       <Hero />
-      <StatsBar />
       <About />
       <Services />
       <Partners />
@@ -26,6 +25,7 @@ export default function Home() {
       <Contact />
       <Faq />
       <Footer />
+      <FloatingButtons />
     </main>
   )
 }

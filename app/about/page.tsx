@@ -28,6 +28,7 @@ import {
   Gamepad2,
   Cable,
 } from "lucide-react"
+import { FloatingButtons } from "@/components/floating-buttons"
 
 /* ───────────────────────────────────────── data ─────────────────────────────────────────── */
 
@@ -112,38 +113,106 @@ export default function AboutPage() {
     <main className="min-h-screen bg-background">
       <Navbar />
 
-      {/* ═══════════════════════════════ PAGE HEADER ═══════════════════════════════ */}
-      <section className="pt-28 pb-16 lg:pt-36 lg:pb-20 px-4 sm:px-6 lg:px-8 border-b border-border/40">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-primary"
-          >
-            About Reverta
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mt-4 text-4xl sm:text-5xl font-extrabold text-foreground leading-tight"
-          >
-            Reverta Sustainable Solutions Private Limited
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-            className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-          >
-            We are an innovative e-waste management company dedicated to safe, compliant, and socially responsible
-            recycling. Our network spans Southern India, empowering businesses and communities to close the loop.
-          </motion.p>
+      {/* ═══════════════════════════════ WHO WE ARE HERO ═══════════════════════════════ */}
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-white pt-20">
+        {/* Image on right side with gradient fade - starts below navbar */}
+        <div className="absolute top-20 bottom-0 right-0 w-full lg:w-[50%]">
+          <img
+            src="/ewaste-scaled.webp"
+            alt="Reverta team at work"
+            className="w-full h-full object-cover"
+          />
+          {/* Gradient overlay: starts fading from the left edge of image container */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent" />
+        </div>
+
+        {/* Content on left */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 w-full">
+          <div className="max-w-xl lg:max-w-lg xl:max-w-xl">
+            {/* Caption */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex items-center gap-3 mb-6"
+            >
+              <div className="w-10 h-[3px] bg-primary rounded-full" />
+              <span className="text-sm font-semibold tracking-widest uppercase text-primary">About Us</span>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-foreground leading-[1.15] tracking-tight"
+            >
+              Who We Are
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="mt-6 text-base sm:text-lg text-foreground/75 leading-relaxed max-w-lg"
+            >
+              Reverta is an innovative e-waste management company dedicated to providing safe, 
+              compliant, and socially responsible solutions for electronic waste recycling. 
+              Our certified professionals and cutting-edge technology ensure your electronics 
+              are disposed of securely and sustainably.
+            </motion.p>
+
+            {/* Stats row - Clear labels */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="mt-8 flex flex-wrap gap-6 sm:gap-10"
+            >
+              {[
+                { value: "100%", label: "Compliance Rate" },
+                { value: "ISO", label: "Certified" },
+                { value: "24/7", label: "Support" },
+              ].map((stat) => (
+                <div key={stat.label} className="text-left">
+                  <p className="text-2xl sm:text-3xl font-bold text-primary">{stat.value}</p>
+                  <p className="text-xs sm:text-sm font-medium text-foreground/60 mt-1">{stat.label}</p>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="mt-10 flex flex-wrap gap-4"
+            >
+              <Button
+                size="lg"
+                className="h-12 px-8 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all"
+                asChild
+              >
+                <Link href="/#contact">
+                  Schedule Pickup
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="h-12 px-6 rounded-full text-foreground hover:bg-foreground/5 font-medium"
+                asChild
+              >
+                <Link href="/#services">View Services</Link>
+              </Button>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════ VISION & VALUES ═══════════════════════════════ */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="text-xs font-bold tracking-[0.3em] uppercase text-primary">Our Vision & Values</span>
@@ -369,6 +438,7 @@ export default function AboutPage() {
       </section>
 
       <Footer />
+      <FloatingButtons />
     </main>
   )
 }

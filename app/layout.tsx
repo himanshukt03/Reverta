@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   keywords: ["e-waste", "recycling", "electronic waste", "data destruction", "sustainability", "circular economy"],
     generator: 'v0.app',
   icons: {
-    icon: "/Reverta_fav.png",
-    shortcut: "/Reverta_fav.png",
-    apple: "/Reverta_fav.png",
+    icon: "/logos/reverta_iconWhite.png",
+    shortcut: "/logos/reverta_iconWhite.png",
+    apple: "/logos/reverta_iconWhite.png",
   },
 }
 
