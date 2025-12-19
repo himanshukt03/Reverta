@@ -64,39 +64,11 @@ export function Footer() {
             <Link href="/" className="inline-block">
               <img src="/logos/reverta_fullLogoWhite.png" alt="Reverta logo" className="h-10 w-auto object-contain" />
             </Link>
+             <p className="mt-4 text-sm font-bold text-primary">Driven by Purpose. Powered by Sustainability</p>
             <p className="mt-5 text-sm opacity-70 max-w-sm leading-relaxed">
               Reverta Sustainable Solutions Private Limited. Building a sustainable future through responsible e-waste
               recycling and circular economy practices.
             </p>
-
-            {/* Newsletter */}
-            <div className="mt-8">
-              <p className="text-sm font-semibold mb-4">Subscribe to Our Newsletter</p>
-              {subscribed ? (
-                <div className="flex items-center gap-2 text-primary">
-                  <Heart className="w-4 h-4" />
-                  <span className="text-sm">Thanks for subscribing!</span>
-                </div>
-              ) : (
-                <form onSubmit={handleSubscribe} className="flex gap-2">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="rounded-xl bg-background/10 border-background/20 text-background placeholder:text-background/50 h-11 focus-visible:ring-primary"
-                    required
-                  />
-                  <Button
-                    type="submit"
-                    size="icon"
-                    className="rounded-xl bg-primary hover:bg-primary/90 h-11 w-11 flex-shrink-0"
-                  >
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </form>
-              )}
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -179,9 +151,6 @@ export function Footer() {
         <div className="mt-12 lg:mt-16 pt-8 border-t border-background/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm opacity-60 text-center sm:text-left">
             © {new Date().getFullYear()} Reverta Sustainable Solutions Pvt. Ltd. All rights reserved.
-          </p>
-          <p className="text-xs opacity-50 flex items-center gap-1">
-            Made with <Heart className="w-3 h-3 text-primary" /> for a greener planet
           </p>
         </div>
       </div>

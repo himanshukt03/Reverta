@@ -116,19 +116,17 @@ export default function AboutPage() {
       {/* ═══════════════════════════════ WHO WE ARE HERO ═══════════════════════════════ */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-white pt-20">
         {/* Image on right side with gradient fade - starts below navbar */}
-        <div className="absolute top-20 bottom-0 right-0 w-full lg:w-[50%]">
-          <img
-            src="/ewaste-scaled.webp"
-            alt="Reverta team at work"
-            className="w-full h-full object-cover"
-          />
+        <div className="absolute top-20 bottom-0 right-0 hidden lg:block w-[50%]">
+          <img src="/ewaste-scaled.webp" alt="Reverta team at work" className="w-full h-full object-cover" />
           {/* Gradient overlay: starts fading from the left edge of image container */}
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent" />
         </div>
 
         {/* Content on left */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 w-full">
-          <div className="max-w-xl lg:max-w-lg xl:max-w-xl">
+          <div
+            className="max-w-xl lg:max-w-lg xl:max-w-xl rounded-3xl bg-white/90 backdrop-blur-md p-6 shadow-xl lg:bg-transparent lg:backdrop-blur-0 lg:p-0 lg:shadow-none"
+          >
             {/* Caption */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
