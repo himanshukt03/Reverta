@@ -34,7 +34,7 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative order-2 lg:order-1"
+            className="relative order-2 lg:order-1 w-full max-w-xl lg:justify-self-end"
           >
             {/* Background decoration */}
             <div className="absolute -inset-4 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl -z-10" />
@@ -42,8 +42,8 @@ export function About() {
             {/* Main image */}
             <div className="relative aspect-[4/3] rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="/professional-recycling-facility-team-sorting-elect.jpg"
-                alt="Reverta recycling facility"
+                src="/people-recycling.svg"
+                alt="Technicians dismantling electronics for responsible recycling"
                 className="object-cover object-right w-full h-full"
               />
               {/* Softer overlay to reveal more image on the right */}
