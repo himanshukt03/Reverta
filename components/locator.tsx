@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Search, MapPin, Phone, Clock, Navigation, Building2 } from "lucide-react"
+import { Search, MapPin, Phone, Clock, Navigation, Building2, CheckCircle2, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
@@ -22,15 +22,41 @@ export function Locator() {
   const [searchQuery, setSearchQuery] = useState("")
   const [showResults, setShowResults] = useState(false)
   const [isSearching, setIsSearching] = useState(false)
+  const [availability, setAvailability] = useState<boolean | null>(null)
+  const [checkedPincode, setCheckedPincode] = useState("")
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
-    if (searchQuery.trim()) {
-      setIsSearching(true)
-      setTimeout(() => {
-        setIsSearching(false)
-        setShowResults(true)
-      }, 800)
+    const pin = searchQuery.trim()
+    setShowResults(false)
+    if (!pin) return
+
+    // simple client-side validation for 6-digit PIN code
+    if (!/^\d{6}$/.test(pin)) {
+      setIsSearching(false)
+      setAvailability(null)
+      setCheckedPincode(pin)
+      setShowResults(true)
+      return
+    }
+
+    setIsSearching(true)
+    setTimeout(() => {
+      setIsSearching(false)
+      const isBengaluru = /^56\d{4}$/.test(pin)
+      setAvailability(isBengaluru)
+      setCheckedPincode(pin)
+      setShowResults(true)
+    }, 800)
+  }
+
+  const handleScheduleClick = () => {
+    const el = document.getElementById("contact")
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" })
+    } else {
+      // fallback: update hash to navigate
+      window.location.hash = "#contact"
     }
   }
 
@@ -54,11 +80,11 @@ export function Locator() {
             Collection Point <span className="text-primary">Locator</span>
           </h2>
           <p className="mt-5 text-muted-foreground text-lg">
-            Find the nearest Reverta collection center for convenient e-waste drop-off or pickup scheduling.
+            Check to see if we are available in your area
           </p>
         </motion.div>
 
-        <motion.div
+          <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -71,7 +97,7 @@ export function Locator() {
                 <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                 <Input
                   type="text"
-                  placeholder="Enter PIN code or city name..."
+                  placeholder="Enter 6-digit PIN code..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-12 h-12 rounded-xl border-0 bg-transparent focus-visible:ring-0 text-base"
@@ -97,73 +123,43 @@ export function Locator() {
             </div>
           </form>
 
-          {/* Quick links */}
-          <div className="mt-4 flex flex-wrap justify-center gap-2">
-            {["Delhi", "Mumbai", "Bengaluru", "Chennai"].map((city) => (
-              <button
-                key={city}
-                onClick={() => {
-                  setSearchQuery(city)
-                  setIsSearching(true)
-                  setTimeout(() => {
-                    setIsSearching(false)
-                    setShowResults(true)
-                  }, 800)
-                }}
-                className="px-4 py-1.5 rounded-full text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-              >
-                {city}
-              </button>
-            ))}
-          </div>
+          
         </motion.div>
 
         {showResults && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
-          >
-            {mockCenters.map((center, index) => (
-              <motion.div
-                key={center.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-card rounded-2xl p-6 border border-border hover:border-primary/20 hover:shadow-lg transition-all group"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    <Building2 className="w-6 h-6 text-primary group-hover:text-primary-foreground" />
-                  </div>
-                  <span className="text-xs font-medium px-3 py-1 rounded-full bg-muted text-muted-foreground">
-                    {center.type}
-                  </span>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mt-12 max-w-2xl mx-auto">
+            <div className="bg-card rounded-2xl p-8 border border-border text-center">
+              {(!/^[0-9]{6}$/.test(checkedPincode) || availability === null) && checkedPincode && (
+                <div>
+                  <p className="text-lg font-medium text-foreground">Please enter a valid 6-digit PIN code.</p>
                 </div>
+              )}
 
-                <h3 className="font-semibold text-foreground text-lg">{center.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{center.address}</p>
-
-                <div className="mt-4 pt-4 border-t border-border space-y-2">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Phone className="w-4 h-4 text-primary" />
-                    {center.phone}
+              {availability === true && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-center text-primary">
+                    <CheckCircle2 className="w-12 h-12" />
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Clock className="w-4 h-4 text-primary" />
-                    {center.hours}
+                  <h3 className="text-2xl font-bold text-foreground">Yes — we're available in your area!</h3>
+                  <p className="text-sm text-muted-foreground">PIN: {checkedPincode}. Schedule a pickup or find the nearest collection point.</p>
+                  <div className="mt-4">
+                    <Button className="rounded-xl" onClick={handleScheduleClick}>
+                      Schedule Pickup
+                    </Button>
                   </div>
                 </div>
+              )}
 
-                <Button
-                  variant="outline"
-                  className="w-full mt-4 rounded-xl border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground bg-transparent transition-colors"
-                >
-                  <Navigation className="w-4 h-4 mr-2" />
-                  Get Directions
-                </Button>
-              </motion.div>
-            ))}
+              {availability === false && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-center text-destructive">
+                    <X className="w-12 h-12" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">We're not available in your area yet.</h3>
+                  <p className="text-sm text-muted-foreground">PIN: {checkedPincode}. We're coming soon — stay tuned!</p>
+                </div>
+              )}
+            </div>
           </motion.div>
         )}
 
