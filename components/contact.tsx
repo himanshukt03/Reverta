@@ -11,22 +11,23 @@ import { Textarea } from "@/components/ui/textarea"
 const contactInfo = [
   {
     icon: MapPin,
-    label: "Visit Us",
-    value: "2nd Floor, 66, 1st Main Rd, above Axis Bank, 2nd Stage, 3rd Stage, Basaveshwar Nagar, Bengaluru, Karnataka 560079",
+    label: "Visit Reverta Sustainable Solutions",
+    value:
+      "Reverta Sustainable Solutions, 2nd Floor, 66, 1st Main Rd, above Axis Bank, 2nd Stage, 3rd Stage, Basaveshwar Nagar, Bengaluru, Karnataka 560079",
   },
   {
     icon: Phone,
-    label: "Call Us",
+    label: "Call Reverta Sustainable Solutions",
     value: "+91 11 2345 6789",
   },
   {
     icon: MessageCircle,
-    label: "WhatsApp",
+    label: "WhatsApp Reverta Sustainable Solutions",
     value: "+91 98765 43210",
   },
   {
     icon: Mail,
-    label: "Email Us",
+    label: "Email Reverta Sustainable Solutions",
     value: "info@reverta.in",
   },
 ]

@@ -43,7 +43,7 @@ export function About() {
             <div className="relative aspect-[4/3] rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl">
               <img
                 src="/people-recycling.svg"
-                alt="Technicians dismantling electronics for responsible recycling"
+                alt="Reverta Sustainable Solutions technicians dismantling electronics for responsible recycling in India"
                 className="object-cover object-right w-full h-full"
               />
               {/* Softer overlay to reveal more image on the right */}

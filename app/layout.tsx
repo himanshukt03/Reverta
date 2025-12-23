@@ -14,43 +14,52 @@ const geistMono = Geist_Mono({
 })
 
 const siteUrl = "https://reverta.in"
+const companyName = "Reverta Sustainable Solutions"
+const companyLegalName = "Reverta Sustainable Solutions Private Limited"
+const companyTagline = "Your trusted pan-India e-waste recycling partner"
+const companyPhone = "+91 11 2345 6789"
+const companyEmail = "info@reverta.in"
+const companyAddress =
+  "2nd Floor, 66, 1st Main Rd, above Axis Bank, 2nd Stage, 3rd Stage, Basaveshwar Nagar, Bengaluru, Karnataka 560079"
+const companyCoordinates = { latitude: 12.9945, longitude: 77.5385 }
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Reverta | Your Trusted E-Waste Solution",
-    template: "%s | Reverta",
+    default: "Reverta Sustainable Solutions | Trusted E-Waste Company in India",
+    template: "%s | Reverta Sustainable Solutions",
   },
   description:
-    "Reverta Sustainable Solutions delivers secure data destruction and responsible e-waste recycling with ISO-compliant processes across India.",
+    `${companyName} delivers secure data destruction, ITAD, and responsible e-waste recycling with ISO-compliant processes across India. Trusted reverta ewaste company for pickups, reporting, and zero-landfill outcomes.`,
   keywords: [
-    "e-waste",
-    "ewaste management",
-    "reverta e-waste",
+    "reverta sustainable solutions",
+    "reverta ewaste",
+    "reverta ewaste company",
+    "e-waste management india",
     "electronic waste recycling",
-    "data destruction",
-    "sustainability",
-    "circular economy",
-    "secure e-waste pickup",
+    "secure data destruction",
     "IT asset disposition",
+    "ewaste pickup near me",
+    "bengaluru e-waste recycler",
+    "iso 14001 ewaste",
   ],
   generator: "v0.app",
-  applicationName: "Reverta",
+  applicationName: companyName,
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Reverta | Your Trusted E-Waste Solution",
+    title: `${companyName} | Trusted E-Waste Company in India`,
     description:
-      "Reverta Sustainable Solutions delivers secure data destruction and responsible e-waste recycling with ISO-compliant processes across India.",
+      `${companyName} provides certified e-waste recycling, IT asset disposition, and secure data destruction with nationwide pickup coverage.`,
     url: siteUrl,
-    siteName: "Reverta",
+    siteName: companyName,
     images: [
       {
         url: "/people-recycling.svg",
         width: 1600,
         height: 900,
-        alt: "Technicians dismantling electronics for responsible recycling",
+        alt: `${companyName} technicians dismantling electronics for responsible recycling`,
       },
     ],
     locale: "en_US",
@@ -58,9 +67,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reverta | Your Trusted E-Waste Solution",
+    title: `${companyName} | E-Waste & ITAD`,
     description:
-      "Reverta Sustainable Solutions delivers secure data destruction and responsible e-waste recycling with ISO-compliant processes across India.",
+      `${companyName} handles e-waste collection, certified recycling, and data destruction across India with zero-landfill outcomes.`,
     images: ["/people-recycling.svg"],
   },
   robots: {
@@ -93,6 +102,84 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Reverta" />
         <link rel="manifest" href="/site.webmanifest" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': ['Organization', 'LocalBusiness'],
+              name: companyName,
+              legalName: companyLegalName,
+              url: siteUrl,
+              telephone: companyPhone,
+              email: companyEmail,
+              slogan: companyTagline,
+              image: `${siteUrl}/logos/reverta_fullLogoBlack.png`,
+              logo: `${siteUrl}/logos/reverta_fullLogoBlack.png`,
+              sameAs: [
+                'https://www.facebook.com',
+                'https://www.linkedin.com',
+                'https://www.twitter.com',
+                'https://www.instagram.com',
+              ],
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: companyAddress,
+                addressLocality: 'Bengaluru',
+                addressRegion: 'Karnataka',
+                postalCode: '560079',
+                addressCountry: 'IN',
+              },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: companyCoordinates.latitude,
+                longitude: companyCoordinates.longitude,
+              },
+              openingHoursSpecification: [
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                  opens: '09:00',
+                  closes: '18:00',
+                },
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  dayOfWeek: 'Saturday',
+                  opens: '09:00',
+                  closes: '14:00',
+                },
+              ],
+              contactPoint: [
+                {
+                  '@type': 'ContactPoint',
+                  telephone: companyPhone,
+                  contactType: 'customer support',
+                  email: companyEmail,
+                  areaServed: 'IN',
+                  availableLanguage: ['en', 'hi'],
+                },
+              ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: companyName,
+              url: siteUrl,
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: `${siteUrl}/?s={search_term_string}`,
+                'query-input': 'required name=search_term_string',
+              },
+            }),
+          }}
+        />
       </head>
       <body className={`${plusJakartaSans.variable} ${geistMono.variable} font-sans antialiased`}>
         {children}
