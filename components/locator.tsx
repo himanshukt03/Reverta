@@ -10,25 +10,12 @@ import { Input } from "@/components/ui/input"
 const mockCenters = [
   {
     name: "Reverta Main Facility",
-    address: "Industrial Area, Phase 1, New Delhi 110001",
+    address: "2nd Floor, 66, 1st Main Rd, above Axis Bank, 2nd Stage, 3rd Stage, Basaveshwar Nagar, Bengaluru, Karnataka 560079",
     phone: "+91 11 2345 6789",
     hours: "Mon-Sat: 9AM - 6PM",
     type: "Main Hub",
   },
-  {
-    name: "Reverta South Hub",
-    address: "Electronic City, Bangalore 560100",
-    phone: "+91 80 2345 6789",
-    hours: "Mon-Sat: 9AM - 6PM",
-    type: "Collection Center",
-  },
-  {
-    name: "Reverta West Center",
-    address: "MIDC, Andheri East, Mumbai 400093",
-    phone: "+91 22 2345 6789",
-    hours: "Mon-Sat: 9AM - 6PM",
-    type: "Collection Center",
-  },
+
 ]
 
 export function Locator() {
@@ -112,7 +99,7 @@ export function Locator() {
 
           {/* Quick links */}
           <div className="mt-4 flex flex-wrap justify-center gap-2">
-            {["Delhi", "Mumbai", "Bangalore", "Chennai"].map((city) => (
+            {["Delhi", "Mumbai", "Bengaluru", "Chennai"].map((city) => (
               <button
                 key={city}
                 onClick={() => {

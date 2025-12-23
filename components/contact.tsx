@@ -12,7 +12,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Visit Us",
-    value: "Industrial Area, Phase 1, New Delhi, India 110001",
+    value: "2nd Floor, 66, 1st Main Rd, above Axis Bank, 2nd Stage, 3rd Stage, Basaveshwar Nagar, Bengaluru, Karnataka 560079",
   },
   {
     icon: Phone,
