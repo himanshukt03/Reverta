@@ -6,7 +6,7 @@ const partners = [
   {
     name: "NgreenTech",
     logo: "/Ngreen-logo.png",
-    note: "Strategic Partner",
+    note: "Strategic Partner of Reverta Sustainable Solutions",
   },
 ]
 

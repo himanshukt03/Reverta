@@ -7,7 +7,7 @@ import Link from "next/link"
 const services = [
   {
     icon: Truck,
-    title: "E-Waste Collection",
+    title: "E-Waste Collection | Reverta Sustainable Solutions",
     description:
       "Convenient doorstep pickup for residential and commercial clients. We handle all types of electronic waste with professional care and proper documentation.",
     features: ["Free Pickup", "Same-Day Available", "All Electronics"],
@@ -16,7 +16,7 @@ const services = [
   },
   {
     icon: ShieldCheck,
-    title: "Data Destruction",
+    title: "Data Destruction | Reverta Sustainable Solutions",
     description:
       "NSA-certified data wiping and physical destruction services. Your sensitive information is completely secure with our military-grade protocols.",
     features: ["Certificate Provided", "On-Site Options", "R2 Certified"],
@@ -25,7 +25,7 @@ const services = [
   },
   {
     icon: Recycle,
-    title: "Recycling & Recovery",
+    title: "Recycling & Recovery | Reverta Sustainable Solutions",
     description:
       "Advanced material recovery processes to extract valuable components. We maximize resource recovery while minimizing environmental impact.",
     features: ["Zero Landfill", "Material Reports", "Eco-Certified"],
@@ -34,7 +34,7 @@ const services = [
   },
   {
     icon: RefreshCw,
-    title: "Asset Refurbishment",
+    title: "Asset Refurbishment | Reverta Sustainable Solutions",
     description:
       "Give your old electronics a second life. We refurbish and redistribute functional devices responsibly, creating value from what others discard.",
     features: ["Asset Reports", "Tax Benefits", "IT Audit Ready"],
