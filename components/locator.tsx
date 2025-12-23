@@ -9,8 +9,9 @@ import { Input } from "@/components/ui/input"
 
 const mockCenters = [
   {
-    name: "Reverta Main Facility",
-    address: "2nd Floor, 66, 1st Main Rd, above Axis Bank, 2nd Stage, 3rd Stage, Basaveshwar Nagar, Bengaluru, Karnataka 560079",
+    name: "Reverta Sustainable Solutions Main Facility",
+    address:
+      "Reverta Sustainable Solutions, 2nd Floor, 66, 1st Main Rd, above Axis Bank, 2nd Stage, 3rd Stage, Basaveshwar Nagar, Bengaluru, Karnataka 560079",
     phone: "+91 11 2345 6789",
     hours: "Mon-Sat: 9AM - 6PM",
     type: "Main Hub",

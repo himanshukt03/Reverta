@@ -40,7 +40,7 @@ export function Hero() {
         <div className="absolute inset-0">
           <img
             src="/modern-sustainable-recycling-facility-with-green-t.jpg"
-            alt="Reverta sustainable recycling"
+            alt="Reverta Sustainable Solutions recycling facility in India"
             className="w-full h-full object-cover object-center"
           />
           {/* Stronger gradient for better text readability */}
@@ -149,7 +149,7 @@ export function Hero() {
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
                   <img
                     src="/modern-sustainable-recycling-facility-with-green-t.jpg"
-                    alt="Reverta sustainable recycling facility"
+                    alt="Reverta Sustainable Solutions e-waste recycling facility in India"
                     className="w-full h-full object-cover"
                   />
                   {/* Overlay gradient */}

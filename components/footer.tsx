@@ -27,16 +27,16 @@ const services = [
 ]
 
 const legal = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Service", href: "#" },
-  { label: "Cookie Policy", href: "#" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Cookie Policy", href: "/cookies" },
 ]
 
 const socials = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com", label: "Facebook" },
+  { icon: Twitter, href: "https://www.twitter.com", label: "Twitter" },
+  { icon: Linkedin, href: "https://www.linkedin.com", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com", label: "Instagram" },
 ]
 
 export function Footer() {
@@ -64,11 +64,17 @@ export function Footer() {
             <Link href="/" className="inline-block">
               <img src="/logos/reverta_fullLogoWhite.png" alt="Reverta logo" className="h-10 w-auto object-contain" />
             </Link>
-             <p className="mt-4 text-sm font-bold text-primary">Driven by Purpose. Powered by Sustainability</p>
+            <p className="mt-4 text-sm font-bold text-primary">Driven by Purpose. Powered by Sustainability</p>
             <p className="mt-5 text-sm opacity-70 max-w-sm leading-relaxed">
               Reverta Sustainable Solutions Private Limited. Building a sustainable future through responsible e-waste
               recycling and circular economy practices.
             </p>
+            <div className="mt-4 space-y-1 text-sm">
+              <p className="font-semibold text-background">Reverta Sustainable Solutions Private Limited</p>
+              <p className="opacity-80">2nd Floor, 66, 1st Main Rd, above Axis Bank, 2nd Stage, 3rd Stage, Basaveshwar Nagar, Bengaluru, Karnataka 560079</p>
+              <p className="opacity-80">Phone: +91 11 2345 6789</p>
+              <p className="opacity-80">Email: info@reverta.in</p>
+            </div>
           </div>
 
           {/* Quick Links */}
