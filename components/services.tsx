@@ -54,22 +54,22 @@ export function Services() {
           </p>
         </motion.div>
 
-        {/* Simplified 4-card grid without clutter */}
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* 2x2 Horizontal Feature Layout for distinct visual rhythm */}
+        <div className="mt-12 grid md:grid-cols-2 gap-5 max-w-5xl mx-auto">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.07 }}
-              className="group bg-card rounded-2xl p-6 border border-border/80 hover:border-primary/40 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+              transition={{ delay: index * 0.08 }}
+              className="group bg-card rounded-2xl p-6 border border-border/80 hover:border-primary/40 hover:shadow-sm transition-all duration-200 flex items-start gap-4"
             >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <service.icon className="w-6 h-6" />
+              </div>
               <div>
-                <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                  <service.icon className="w-5 h-5" />
-                </div>
-                <h3 className="text-base font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-base font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
