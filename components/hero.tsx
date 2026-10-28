@@ -3,11 +3,11 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { ArrowRight, Handshake } from "lucide-react"
+import { ArrowRight, ShieldCheck } from "lucide-react"
 
 export function Hero() {
   return (
-    <section id="home" className="relative min-h-[92dvh] flex flex-col justify-center overflow-hidden">
+    <section id="home" className="relative min-h-[94dvh] flex flex-col justify-center overflow-hidden">
       {/* Background Subtle Gradient & Pattern */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
 
@@ -30,7 +30,7 @@ export function Hero() {
       />
 
       {/* ====== MOBILE HERO ====== */}
-      <div className="lg:hidden relative z-10 flex flex-col justify-center px-6 pt-24 pb-12 min-h-[85dvh]">
+      <div className="lg:hidden relative z-10 flex flex-col justify-center px-6 pt-28 pb-14 min-h-[85dvh]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export function Hero() {
       </div>
 
       {/* ====== DESKTOP HERO ====== */}
-      <div className="hidden lg:flex relative z-10 flex-1 items-center pt-24 pb-12">
+      <div className="hidden lg:flex relative z-10 flex-1 items-center pt-32 xl:pt-36 pb-16">
         <div className="max-w-7xl mx-auto px-8 w-full">
           <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 items-center">
             {/* Content */}
@@ -89,7 +89,7 @@ export function Hero() {
                 Old electronics often stay tucked in cupboards because people aren&apos;t sure where to take them. Reverta helps schools, apartment societies, and workplaces organise community collection drives with clear communication and verified partner handover.
               </p>
 
-              <div className="mt-7 flex flex-wrap items-center gap-3">
+              <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Button
                   className="h-11 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground px-5 text-sm font-semibold shadow-sm hover:shadow transition-all hover:-translate-y-0.5"
                   asChild
@@ -126,17 +126,17 @@ export function Hero() {
                   />
                 </div>
 
-                {/* Simplified Bottom Pill */}
+                {/* Bottom Trust-Signaling Pill Hanging Out on the Left */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="absolute -bottom-3.5 left-6 bg-card/95 backdrop-blur-md rounded-xl px-3.5 py-2 shadow-lg border border-border flex items-center gap-2.5"
+                  className="absolute -bottom-4 -left-6 sm:-left-8 bg-card/95 backdrop-blur-md rounded-xl px-4 py-2.5 shadow-xl border border-border flex items-center gap-2.5 z-20"
                 >
-                  <div className="w-7 h-7 rounded-lg bg-primary text-primary-foreground flex items-center justify-center shrink-0">
-                    <Handshake className="w-3.5 h-3.5" />
+                  <div className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-4 h-4" />
                   </div>
-                  <span className="text-xs font-semibold text-foreground">Verified Partner Handover</span>
+                  <span className="text-xs font-semibold text-foreground tracking-tight">Verified Recycling Partners</span>
                 </motion.div>
               </div>
             </motion.div>
