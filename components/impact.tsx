@@ -30,7 +30,7 @@ const impactPillars = [
 
 export function Impact() {
   return (
-    <section id="impact" className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-muted/20 relative overflow-hidden">
+    <section id="impact" className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-muted/35 border-y border-border/50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

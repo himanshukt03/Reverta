@@ -12,7 +12,7 @@ const partners = [
 
 export function Partners() {
   return (
-    <section id="partners" className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-muted/20">
+    <section id="partners" className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-muted/35 border-y border-border/50 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="text-center max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-2 mb-3">

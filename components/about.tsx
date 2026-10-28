@@ -26,7 +26,7 @@ const features = [
 
 export function About() {
   return (
-    <section id="about" className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="about" className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-muted/30 border-y border-border/40 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Visual */}

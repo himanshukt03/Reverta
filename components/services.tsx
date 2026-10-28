@@ -37,7 +37,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-20 lg:py-28 bg-muted/20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="services" className="py-20 lg:py-28 bg-background px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
