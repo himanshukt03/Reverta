@@ -29,7 +29,7 @@ export function Hero() {
         className="absolute bottom-1/4 -right-20 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-secondary/5 rounded-full blur-3xl pointer-events-none"
       />
 
-      {/* ====== MOBILE HERO (Matched to Reference Image 2) ====== */}
+      {/* ====== MOBILE HERO ====== */}
       <div className="lg:hidden relative z-10 flex flex-col justify-start px-6 pt-28 pb-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,10 +59,10 @@ export function Hero() {
             </Button>
             <Button
               variant="outline"
-              className="w-full h-11 px-2 rounded-full border border-border bg-card/70 backdrop-blur-sm text-foreground text-xs font-medium hover:bg-muted text-center flex items-center justify-center"
+              className="w-full h-11 px-2 rounded-full border border-border bg-card/80 backdrop-blur-sm text-foreground text-xs font-medium hover:bg-primary/10 hover:text-primary hover:border-primary/40 text-center flex items-center justify-center transition-colors"
               asChild
             >
-              <Link href="/schools-communities" className="whitespace-nowrap truncate">
+              <Link href="/schools-communities" className="whitespace-nowrap truncate text-foreground hover:text-primary">
                 Schools & Communities
               </Link>
             </Button>
@@ -113,10 +113,10 @@ export function Hero() {
                 </Button>
                 <Button
                   variant="outline"
-                  className="h-11 rounded-xl border border-border/80 bg-background/80 hover:bg-muted text-foreground px-5 text-sm font-medium transition-all"
+                  className="h-11 rounded-xl border border-border/80 bg-card/80 hover:bg-primary/10 hover:text-primary hover:border-primary/40 text-foreground px-5 text-sm font-medium transition-colors"
                   asChild
                 >
-                  <Link href="/schools-communities">Schools & Communities</Link>
+                  <Link href="/schools-communities" className="text-foreground hover:text-primary">Schools & Communities</Link>
                 </Button>
               </div>
             </motion.div>

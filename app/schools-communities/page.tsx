@@ -42,8 +42,8 @@ export default function SchoolsAndCommunitiesPage() {
                 <ArrowRight className="ml-1 sm:ml-2 w-3.5 h-3.5 shrink-0" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="w-full sm:w-auto h-11 sm:h-12 rounded-xl text-xs sm:text-sm px-2.5 sm:px-7" asChild>
-              <Link href="#reward-partners" className="truncate">Reward Partners</Link>
+            <Button size="lg" variant="outline" className="w-full sm:w-auto h-11 sm:h-12 rounded-xl text-xs sm:text-sm px-2.5 sm:px-7 border border-border/80 bg-card/80 hover:bg-primary/10 hover:text-primary hover:border-primary/40 text-foreground transition-colors" asChild>
+              <Link href="#reward-partners" className="truncate text-foreground hover:text-primary">Reward Partners</Link>
             </Button>
           </div>
         </div>

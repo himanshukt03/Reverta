@@ -95,10 +95,10 @@ export function About() {
               </Button>
               <Button
                 variant="outline"
-                className="w-full sm:w-auto h-11 rounded-xl border-border hover:border-primary/30 text-foreground text-xs sm:text-sm font-medium px-3 sm:px-5 bg-transparent"
+                className="w-full sm:w-auto h-11 rounded-xl border border-border/80 hover:bg-primary/10 hover:text-primary hover:border-primary/40 text-foreground text-xs sm:text-sm font-medium px-3 sm:px-5 bg-card/80 transition-colors"
                 asChild
               >
-                <Link href="/about" className="truncate">Learn Our Story</Link>
+                <Link href="/about" className="truncate text-foreground hover:text-primary">Learn Our Story</Link>
               </Button>
             </div>
           </motion.div>
