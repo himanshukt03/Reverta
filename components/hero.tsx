@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { ArrowRight, ShieldCheck } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 export function Hero() {
   return (
@@ -125,19 +125,6 @@ export function Hero() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-
-                {/* Bottom Trust-Signaling Pill Hanging Out on the Left */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="absolute -bottom-4 -left-6 sm:-left-8 bg-card/95 backdrop-blur-md rounded-xl px-4 py-2.5 shadow-xl border border-border flex items-center gap-2.5 z-20"
-                >
-                  <div className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                    <ShieldCheck className="w-4 h-4" />
-                  </div>
-                  <span className="text-xs font-semibold text-foreground tracking-tight">Verified Recycling Partners</span>
-                </motion.div>
               </div>
             </motion.div>
           </div>
