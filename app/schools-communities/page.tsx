@@ -102,7 +102,7 @@ export default function SchoolsAndCommunitiesPage() {
             <div className="relative">
               <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-border">
                 <img
-                  src="/e-waste-people.jpg"
+                  src="/K-12-Recycling-Blog-Photo.jpg"
                   alt="Students and volunteers participating in campus e-waste drive"
                   className="w-full h-full object-cover"
                 />
@@ -119,7 +119,7 @@ export default function SchoolsAndCommunitiesPage() {
             <div className="order-2 lg:order-1 relative">
               <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-border">
                 <img
-                  src="/people-recycling.jpg"
+                  src="/pexels-shvets-production-7512889.jpg"
                   alt="Apartment residents participating in an e-waste declutter drive"
                   className="w-full h-full object-cover"
                 />
