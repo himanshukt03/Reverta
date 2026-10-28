@@ -30,17 +30,24 @@ export const metadata: Metadata = {
     template: "%s | Reverta Sustainable Solutions",
   },
   description:
-    "Reverta helps households, schools, residential communities and businesses organise responsible e-waste awareness and collection campaigns, coordinating safe handover to verified downstream partners.",
+    "Reverta helps households, schools, residential communities, and businesses organise responsible e-waste awareness and collection campaigns, coordinating safe handover to verified downstream partners.",
   keywords: [
-    "reverta sustainable solutions",
+    "Reverta Sustainable Solutions",
     "reverta ewaste",
     "e-waste collection drive",
+    "e-waste management Bengaluru",
     "school e-waste campaign",
-    "apartment e-waste collection",
-    "community e-waste drive bengaluru",
-    "responsible e-waste awareness",
+    "apartment e-waste collection Bangalore",
+    "electronic waste pickup Bangalore",
+    "community e-waste drive",
+    "responsible e-waste disposal India",
+    "gadget recycling drive Bengaluru",
+    "verified e-waste partners",
+    "authorized recycler handover",
   ],
-  generator: "v0.app",
+  authors: [{ name: companyName, url: siteUrl }],
+  creator: companyName,
+  publisher: companyLegalName,
   applicationName: companyName,
   alternates: {
     canonical: "/",
@@ -48,26 +55,26 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${companyName} | E-Waste Awareness & Collection Coordination`,
     description:
-      "Reverta helps households, schools, residential communities and businesses organise responsible e-waste awareness and collection campaigns.",
+      "Reverta helps households, schools, residential communities, and businesses organise responsible e-waste awareness and collection campaigns.",
     url: siteUrl,
     siteName: companyName,
     images: [
       {
-        url: "/people-recycling.jpg",
+        url: `${siteUrl}/people-recycling.jpg`,
         width: 1600,
         height: 900,
         alt: `${companyName} community e-waste collection and awareness initiative`,
       },
     ],
-    locale: "en_US",
+    locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${companyName} | E-Waste Awareness & Collection`,
+    title: `${companyName} | E-Waste Awareness & Collection Coordination`,
     description:
       "Reverta coordinates community collection drives and connects e-waste to verified downstream partners.",
-    images: ["/people-recycling.jpg"],
+    images: [`${siteUrl}/people-recycling.jpg`],
   },
   robots: {
     index: true,
@@ -75,6 +82,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 }
@@ -90,6 +100,101 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: companyName,
+        legalName: companyLegalName,
+        url: siteUrl,
+        logo: `${siteUrl}/logos/reverta_fullLogoBlack.png`,
+        image: `${siteUrl}/people-recycling.jpg`,
+        email: companyEmail,
+        telephone: companyPhone,
+        slogan: companyTagline,
+        description:
+          "Reverta facilitates grassroots e-waste collection, community awareness campaigns, and verified partner coordination in Bengaluru.",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: companyAddress,
+          addressLocality: "Bengaluru",
+          addressRegion: "Karnataka",
+          postalCode: "560079",
+          addressCountry: "IN",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: companyCoordinates.latitude,
+          longitude: companyCoordinates.longitude,
+        },
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            telephone: companyPhone,
+            contactType: "campaign support",
+            email: companyEmail,
+            areaServed: "IN",
+            availableLanguage: ["en", "hi", "kn"],
+          },
+        ],
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": `${siteUrl}/#localbusiness`,
+        name: companyName,
+        image: `${siteUrl}/people-recycling.jpg`,
+        telephone: companyPhone,
+        email: companyEmail,
+        priceRange: "₹₹",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: companyAddress,
+          addressLocality: "Bengaluru",
+          addressRegion: "Karnataka",
+          postalCode: "560079",
+          addressCountry: "IN",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: companyCoordinates.latitude,
+          longitude: companyCoordinates.longitude,
+        },
+        url: siteUrl,
+        areaServed: {
+          "@type": "City",
+          name: "Bengaluru",
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: companyName,
+        description: "Responsible E-Waste Awareness & Collection Coordination",
+        publisher: {
+          "@id": `${siteUrl}/#organization`,
+        },
+        inLanguage: "en-IN",
+      },
+      {
+        "@type": "Service",
+        "@id": `${siteUrl}/#service-collection-drives`,
+        name: "Community E-Waste Collection Drive Facilitation",
+        provider: {
+          "@id": `${siteUrl}/#organization`,
+        },
+        areaServed: {
+          "@type": "City",
+          name: "Bengaluru",
+        },
+        description:
+          "Turnkey planning, resident/student engagement, collection boxes, and verified downstream recycler handover coordination.",
+      },
+    ],
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -104,47 +209,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": ["Organization"],
-              name: companyName,
-              legalName: companyLegalName,
-              url: siteUrl,
-              telephone: companyPhone,
-              email: companyEmail,
-              slogan: companyTagline,
-              image: `${siteUrl}/logos/reverta_fullLogoBlack.png`,
-              logo: `${siteUrl}/logos/reverta_fullLogoBlack.png`,
-              sameAs: [
-                "https://www.facebook.com",
-                "https://www.linkedin.com",
-                "https://www.twitter.com",
-                "https://www.instagram.com",
-              ],
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: companyAddress,
-                addressLocality: "Bengaluru",
-                addressRegion: "Karnataka",
-                postalCode: "560079",
-                addressCountry: "IN",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: companyCoordinates.latitude,
-                longitude: companyCoordinates.longitude,
-              },
-              contactPoint: [
-                {
-                  "@type": "ContactPoint",
-                  telephone: companyPhone,
-                  contactType: "campaign support",
-                  email: companyEmail,
-                  areaServed: "IN",
-                  availableLanguage: ["en", "hi", "kn"],
-                },
-              ],
-            }),
+            __html: JSON.stringify(jsonLd),
           }}
         />
       </head>

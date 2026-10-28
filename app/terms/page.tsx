@@ -1,7 +1,21 @@
+import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { FloatingButtons } from "@/components/floating-buttons"
 import { FileText } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: "Terms of Service | Reverta Sustainable Solutions",
+  description:
+    "Review the terms and conditions for organising electronic waste collection drives, participant responsibilities, and downstream partner coordination with Reverta.",
+  alternates: {
+    canonical: "/terms",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 export default function TermsPage() {
   return (
@@ -89,4 +103,3 @@ export default function TermsPage() {
     </main>
   )
 }
-

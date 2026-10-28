@@ -1,7 +1,21 @@
+import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { FloatingButtons } from "@/components/floating-buttons"
 import { Shield } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Reverta Sustainable Solutions",
+  description:
+    "Learn how Reverta Sustainable Solutions protects your contact and enquiry data when you organise an e-waste campaign with us.",
+  alternates: {
+    canonical: "/privacy",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 export default function PrivacyPage() {
   return (
@@ -92,4 +106,3 @@ export default function PrivacyPage() {
     </main>
   )
 }
-
