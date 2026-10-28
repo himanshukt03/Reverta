@@ -29,48 +29,59 @@ export function Hero() {
         className="absolute bottom-1/4 -right-20 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-secondary/5 rounded-full blur-3xl pointer-events-none"
       />
 
-      {/* ====== MOBILE HERO ====== */}
-      <div className="lg:hidden relative z-10 flex flex-col justify-center px-6 pt-28 pb-14 min-h-[85dvh]">
+      {/* ====== MOBILE HERO (Matched to Reference Image 2) ====== */}
+      <div className="lg:hidden relative z-10 flex flex-col justify-start px-6 pt-28 pb-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="max-w-md"
         >
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground leading-[1.18] tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground leading-[1.16] tracking-tight">
             <span className="block">Responsible recycling,</span>
             <span className="text-primary block mt-1">Made simple.</span>
           </h1>
 
-          <p className="mt-4 text-[15px] text-muted-foreground leading-relaxed">
-            Old electronics often stay tucked in drawers because people don&apos;t know where to take them. Reverta helps schools, communities, and offices run effortless collection drives and coordinates safe handover to verified recycling partners.
+          <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
+            Effortless e-waste collection drives for schools, apartment societies, and workplaces with verified partner handover.
           </p>
+
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <Button
+              className="h-12 px-7 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold shadow-md shadow-primary/20 inline-flex items-center gap-2"
+              asChild
+            >
+              <Link href="#contact">
+                Organise a Drive
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </Button>
+            <Button
+              variant="outline"
+              className="h-12 px-5 rounded-full border border-border bg-card/60 backdrop-blur-sm text-foreground text-xs font-medium"
+              asChild
+            >
+              <Link href="/schools-communities">
+                Schools & Communities
+              </Link>
+            </Button>
+          </div>
         </motion.div>
 
+        {/* Arched / Dome Hero Image (Only on Mobile) */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="mt-7 flex flex-col gap-2.5 max-w-md"
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mt-8 sm:mt-10 w-full max-w-md mx-auto"
         >
-          <Button
-            className="w-full h-11 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold shadow-sm"
-            asChild
-          >
-            <Link href="#contact">
-              Organise a Drive
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
-          </Button>
-          <Button
-            variant="outline"
-            className="w-full h-11 rounded-xl border border-border bg-card/60 backdrop-blur-sm text-foreground text-sm font-medium"
-            asChild
-          >
-            <Link href="/schools-communities">
-              Schools & Communities
-            </Link>
-          </Button>
+          <div className="relative aspect-[4/3] rounded-t-[44px] sm:rounded-t-[52px] overflow-hidden shadow-2xl border-t border-x border-border/70 bg-card">
+            <img
+              src="/reverta-hero.jpg"
+              alt="Responsible recycling made simple with Reverta"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
         </motion.div>
       </div>
 
