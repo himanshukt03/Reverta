@@ -175,7 +175,7 @@ export default function SchoolsAndCommunitiesPage() {
         </div>
       </section>
 
-      {/* Reward Partners Section */}
+      {/* Reward Partners Section - Styled with modern card variety */}
       <section id="reward-partners" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -193,34 +193,52 @@ export default function SchoolsAndCommunitiesPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl bg-card border border-border">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
-                <Users className="w-5 h-5" />
+            <div className="p-7 rounded-2xl bg-card border border-border/70 shadow-xs hover:border-primary/40 hover:shadow-md transition-all flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5">
+                  <Users className="w-6 h-6 stroke-[1.8]" />
+                </div>
+                <span className="text-xs font-semibold text-primary/80 uppercase tracking-wider">Audience Alignment</span>
+                <h3 className="font-bold text-foreground text-lg mt-1 mb-2">Reach Engaged Households</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Connect directly with residential societies and school families who actively care about sustainability and clean living.
+                </p>
               </div>
-              <h3 className="font-bold text-foreground text-base mb-2">Reach Engaged Households</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Connect directly with residential societies and school families who actively care about sustainability and clean living.
-              </p>
+              <div className="mt-6 pt-4 border-t border-border/50 text-xs font-medium text-primary">
+                High-intent community outreach
+              </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-card border border-border">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
-                <HeartHandshake className="w-5 h-5" />
+            <div className="p-7 rounded-2xl bg-card border border-border/70 shadow-xs hover:border-primary/40 hover:shadow-md transition-all flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5">
+                  <HeartHandshake className="w-6 h-6 stroke-[1.8]" />
+                </div>
+                <span className="text-xs font-semibold text-primary/80 uppercase tracking-wider">Incentive Programs</span>
+                <h3 className="font-bold text-foreground text-lg mt-1 mb-2">Offer Real Incentives</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Provide discounts, trial passes, educational coupons, or sample products to reward residents for participating in drives.
+                </p>
               </div>
-              <h3 className="font-bold text-foreground text-base mb-2">Offer Real Incentives</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Provide discounts, trial passes, educational coupons, or sample products to reward residents for participating in drives.
-              </p>
+              <div className="mt-6 pt-4 border-t border-border/50 text-xs font-medium text-primary">
+                Meaningful perks over generic ads
+              </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-card border border-border">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
-                <Sparkles className="w-5 h-5" />
+            <div className="p-7 rounded-2xl bg-card border border-border/70 shadow-xs hover:border-primary/40 hover:shadow-md transition-all flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5">
+                  <Sparkles className="w-6 h-6 stroke-[1.8]" />
+                </div>
+                <span className="text-xs font-semibold text-primary/80 uppercase tracking-wider">Brand Presence</span>
+                <h3 className="font-bold text-foreground text-lg mt-1 mb-2">Tangible Visibility</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Feature your brand on drive communication materials and campaign reports with measurable engagement tracking.
+                </p>
               </div>
-              <h3 className="font-bold text-foreground text-base mb-2">Tangible Visibility</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Feature your brand on drive communication materials and campaign reports with measurable engagement tracking.
-              </p>
+              <div className="mt-6 pt-4 border-t border-border/50 text-xs font-medium text-primary">
+                Verified reporting & attribution
+              </div>
             </div>
           </div>
 
@@ -235,34 +253,50 @@ export default function SchoolsAndCommunitiesPage() {
         </div>
       </section>
 
-      {/* Simple 4-Step Process for Campaigns */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30 border-t border-border/50">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl font-bold text-foreground">How getting started works</h3>
-            <p className="text-sm text-muted-foreground mt-1">Four simple steps from first message to documented results.</p>
+      {/* Connected 4-Step Process Flow (Not repetitive cards) */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 border-t border-border/50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <div className="w-8 h-0.5 bg-primary rounded-full" />
+              <span className="text-xs font-semibold text-primary uppercase tracking-wider">Campaign Journey</span>
+              <div className="w-8 h-0.5 bg-primary rounded-full" />
+            </div>
+            <h3 className="text-3xl font-bold text-foreground">How getting started works</h3>
+            <p className="text-sm text-muted-foreground mt-2 max-w-lg mx-auto">Four simple steps from your first inquiry to verified handover records.</p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-5 rounded-2xl bg-card border border-border">
-              <p className="text-xs font-bold text-primary uppercase tracking-wider mb-2">Step 1</p>
-              <h4 className="font-semibold text-foreground text-sm">Tell Us Your Goal</h4>
-              <p className="text-xs text-muted-foreground mt-1 leading-relaxed">Share your campus size, location, and preferred timeline.</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+            <div className="relative p-6 rounded-2xl bg-card border border-border/80 shadow-xs">
+              <div className="w-9 h-9 rounded-full bg-primary text-primary-foreground font-bold text-sm flex items-center justify-center mb-4">
+                1
+              </div>
+              <h4 className="font-bold text-foreground text-base mb-1">Tell Us Your Goal</h4>
+              <p className="text-xs text-muted-foreground leading-relaxed">Share your campus size, location, and preferred timeline.</p>
             </div>
-            <div className="p-5 rounded-2xl bg-card border border-border">
-              <p className="text-xs font-bold text-primary uppercase tracking-wider mb-2">Step 2</p>
-              <h4 className="font-semibold text-foreground text-sm">Agree on the Plan</h4>
-              <p className="text-xs text-muted-foreground mt-1 leading-relaxed">We provide checklists, announcement templates, and date options.</p>
+
+            <div className="relative p-6 rounded-2xl bg-card border border-border/80 shadow-xs">
+              <div className="w-9 h-9 rounded-full bg-primary text-primary-foreground font-bold text-sm flex items-center justify-center mb-4">
+                2
+              </div>
+              <h4 className="font-bold text-foreground text-base mb-1">Align the Plan</h4>
+              <p className="text-xs text-muted-foreground leading-relaxed">We provide checklists, announcement templates, and date options.</p>
             </div>
-            <div className="p-5 rounded-2xl bg-card border border-border">
-              <p className="text-xs font-bold text-primary uppercase tracking-wider mb-2">Step 3</p>
-              <h4 className="font-semibold text-foreground text-sm">Run the Drive</h4>
-              <p className="text-xs text-muted-foreground mt-1 leading-relaxed">Residents drop off devices; items are safely collected.</p>
+
+            <div className="relative p-6 rounded-2xl bg-card border border-border/80 shadow-xs">
+              <div className="w-9 h-9 rounded-full bg-primary text-primary-foreground font-bold text-sm flex items-center justify-center mb-4">
+                3
+              </div>
+              <h4 className="font-bold text-foreground text-base mb-1">Run the Drive</h4>
+              <p className="text-xs text-muted-foreground leading-relaxed">Residents drop off devices; items are safely collected.</p>
             </div>
-            <div className="p-5 rounded-2xl bg-card border border-border">
-              <p className="text-xs font-bold text-primary uppercase tracking-wider mb-2">Step 4</p>
-              <h4 className="font-semibold text-foreground text-sm">Review Summary</h4>
-              <p className="text-xs text-muted-foreground mt-1 leading-relaxed">Receive a verified handover summary and community appreciation.</p>
+
+            <div className="relative p-6 rounded-2xl bg-card border border-border/80 shadow-xs">
+              <div className="w-9 h-9 rounded-full bg-primary text-primary-foreground font-bold text-sm flex items-center justify-center mb-4">
+                4
+              </div>
+              <h4 className="font-bold text-foreground text-base mb-1">Review Summary</h4>
+              <p className="text-xs text-muted-foreground leading-relaxed">Receive a verified handover summary and community appreciation.</p>
             </div>
           </div>
         </div>
