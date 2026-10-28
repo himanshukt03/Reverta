@@ -9,11 +9,10 @@ import { motion, AnimatePresence } from "framer-motion"
 const navLinks = [
   { href: "/#home", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/#services", label: "Services" },
+  { href: "/#services", label: "What We Do" },
   { href: "/#process", label: "How It Works" },
-  { href: "/#impact", label: "Impact" },
+  { href: "/schools-communities", label: "Schools & Communities" },
   { href: "/blog", label: "Resources" },
-  { href: "/#locator", label: "Locator" },
   { href: "/#contact", label: "Contact" },
 ]
 
@@ -60,11 +59,11 @@ export function Navbar() {
 
           <div className="hidden lg:block">
             <Button
-              className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-6 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:-translate-y-0.5"
+              className="h-10 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground px-5 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5"
               asChild
             >
               <Link href="/#contact">
-                Schedule Pickup
+                Organise a Drive
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
@@ -137,7 +136,7 @@ export function Navbar() {
                     asChild
                   >
                     <Link href="/#contact" onClick={() => setIsOpen(false)}>
-                      Schedule Pickup
+                      Organise a Drive
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Link>
                   </Button>

@@ -1,50 +1,39 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Calendar, Truck, Settings, ShieldCheck, Recycle, FileText, CheckCircle2 } from "lucide-react"
+import { MessageSquare, Calendar, Users, Truck, CheckCircle2, Shield } from "lucide-react"
 
 const steps = [
   {
+    icon: MessageSquare,
+    title: "1. Get in Touch",
+    description: "Tell us about your school, apartment community, or workplace.",
+  },
+  {
     icon: Calendar,
-    title: "Book",
-    description: "Schedule online or call",
-    detail: "Easy booking in 2 minutes",
+    title: "2. Plan the Drive",
+    description: "We decide accepted items, convenient dates, and pickup logistics.",
+  },
+  {
+    icon: Users,
+    title: "3. Spread the Word",
+    description: "We provide simple posters, checklists, and messages for residents.",
   },
   {
     icon: Truck,
-    title: "Collect",
-    description: "We pick up from you",
-    detail: "Free doorstep service",
+    title: "4. Collect & Hand Over",
+    description: "Items are collected and safely handed over to our verified partner.",
   },
   {
-    icon: Settings,
-    title: "Process",
-    description: "Items sorted & logged",
-    detail: "Full inventory tracking",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Destroy",
-    description: "Secure data wiping",
-    detail: "NSA-grade protocols",
-  },
-  {
-    icon: Recycle,
-    title: "Recycle",
-    description: "Material recovery",
-    detail: "Zero landfill policy",
-  },
-  {
-    icon: FileText,
-    title: "Report",
-    description: "Get your certificate",
-    detail: "Complete documentation",
+    icon: CheckCircle2,
+    title: "5. Review Results",
+    description: "You receive a clear summary of collected items and handover records.",
   },
 ]
 
 export function HowItWorks() {
   return (
-    <section id="process" className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="process" className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
@@ -66,90 +55,72 @@ export function HowItWorks() {
             <div className="w-8 h-0.5 bg-primary rounded-full" />
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance">
-            Simple Steps to <span className="text-primary">Responsible</span> Recycling
+            From awareness to <span className="text-primary">responsible handover</span>
           </h2>
-          <p className="mt-5 text-muted-foreground text-lg">
-            Our streamlined process makes e-waste recycling easy and hassle-free.
+          <p className="mt-4 text-muted-foreground text-base sm:text-lg">
+            Organising a collection drive is straightforward and stress-free. Here is how we do it together.
           </p>
         </motion.div>
 
+        {/* Desktop 5-step grid */}
         <div className="mt-16 hidden lg:block">
-          <div className="relative">
-            {/* Connection Line */}
-            <div className="absolute top-16 left-[8%] right-[8%] h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20 rounded-full" />
-
-            <div className="grid grid-cols-6 gap-6">
-              {steps.map((step, index) => (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="relative text-center group"
-                >
-                  {/* Step circle */}
-                  <div className="relative mx-auto">
-                    <div className="w-32 h-32 rounded-full bg-card border-2 border-border flex items-center justify-center mx-auto shadow-lg group-hover:border-primary/50 group-hover:shadow-xl transition-all duration-300">
-                      <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                        <step.icon className="w-9 h-9 text-primary" />
-                      </div>
-                    </div>
-                    {/* Step number badge */}
-                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-lg">
-                      {index + 1}
-                    </div>
-                  </div>
-
-                  <div className="mt-8">
-                    <h3 className="font-bold text-foreground text-lg">{step.title}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{step.description}</p>
-                    <p className="mt-2 text-xs text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      {step.detail}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-12 lg:hidden">
-          <div className="space-y-4">
+          <div className="grid grid-cols-5 gap-6">
             {steps.map((step, index) => (
               <motion.div
                 key={step.title}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="relative"
+                transition={{ delay: index * 0.1 }}
+                className="relative text-center group bg-card p-6 rounded-2xl border border-border hover:border-primary/40 transition-all duration-300"
               >
-                <div className="flex items-center gap-4 bg-card rounded-2xl p-4 border border-border">
-                  {/* Step number and icon */}
-                  <div className="relative flex-shrink-0">
-                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
-                      <step.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="absolute -top-2 -left-2 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold">
-                      {index + 1}
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-foreground">{step.title}</h3>
-                    <p className="text-sm text-muted-foreground">{step.description}</p>
-                  </div>
-
-                  {/* Check mark */}
-                  <CheckCircle2 className="w-5 h-5 text-primary/30 flex-shrink-0" />
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+                  <step.icon className="w-8 h-8" />
                 </div>
-
-                {/* Connector line */}
-                {index < steps.length - 1 && <div className="absolute left-7 top-[4.5rem] w-0.5 h-4 bg-border" />}
+                <h3 className="font-bold text-foreground text-base mb-2">{step.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+
+        {/* Mobile slim vertical timeline with connecting line */}
+        <div className="mt-10 lg:hidden relative max-w-md mx-auto">
+          {/* Continuous vertical connecting line */}
+          <div className="absolute left-[26px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-primary/30 via-primary/50 to-primary/30" />
+
+          <div className="space-y-3 relative">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, x: -15 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06 }}
+                className="flex items-center gap-3.5 bg-card rounded-xl p-3 border border-border/80 shadow-xs relative"
+              >
+                <div className="w-8 h-8 rounded-lg bg-primary/15 text-primary flex items-center justify-center flex-shrink-0 z-10 ring-2 ring-background">
+                  <step.icon className="w-4 h-4" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-foreground text-sm leading-tight">{step.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-0.5 leading-snug">{step.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Transparent Promise Note */}
+        <div className="mt-12 max-w-3xl mx-auto p-5 rounded-2xl bg-muted/40 border border-border/80 flex items-start gap-4 text-left">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+            <Shield className="w-5 h-5" />
+          </div>
+          <div>
+            <h4 className="font-semibold text-foreground text-sm">Our Transparent Promise</h4>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed">
+              We focus on community awareness, campaign planning, and convenient collection. We do not claim to operate an in-house recycling facility. All processing and recovery is handled by verified, authorized downstream partners under documented arrangements.
+            </p>
           </div>
         </div>
       </div>

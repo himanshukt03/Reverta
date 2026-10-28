@@ -6,7 +6,8 @@ import { Footer } from "@/components/footer"
 import { FloatingButtons } from "@/components/floating-buttons"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { PenSquare, BookOpenCheck, Building, Recycle, X } from "lucide-react"
+import { BookOpenCheck, Info, X, ArrowRight, ShieldCheck, HeartHandshake, CheckCircle2 } from "lucide-react"
+import Link from "next/link"
 
 interface Article {
   title: string
@@ -17,70 +18,44 @@ interface Article {
 
 const articles: Article[] = [
   {
-    title: "How Households Can Prep Old Gadgets for Recycling",
-    summary: "Declutter drawers responsibly with a three-step routine before every drop-off or pickup.",
+    title: "How Households Can Prep Old Gadgets for a Drive",
+    summary: "A quick three-step routine before dropping off old phones, laptops, and chargers.",
     category: "Safe Disposal Tips",
     content: [
-      "Unplug the device 24 hours before collection so any swollen batteries cool down. Back up photos or documents, then perform a secure reset—most phones, laptops, and routers have a 'erase all content' option tucked into settings.",
-      "Remove protective cases, SIM cards, and memory cards, but keep chargers and cables bundled with a reusable tie. Sorting accessories prevents cables from wrapping around shredder blades and lets refurbishers quickly test functionality.",
-      "Label the bag or box with the device category (phones, laptops, mixed accessories). Clear labeling helps collection teams weigh items accurately for extended producer responsibility (EPR) reporting and reduces how long material sits idle.",
+      "Back up photos and important files, then perform a factory reset. Most smartphones, laptops, and tablets have an 'Erase all content' option in their settings.",
+      "Remove SIM cards, microSD memory cards, and cases. Keep chargers and cables bundled with rubber bands or twist ties so they do not tangle.",
+      "Place smaller items in a cardboard box or clean bag. Keeping dry batteries separate from laptops helps campaign teams weigh and sort items safely.",
     ],
   },
   {
-    title: "Benefits of Certified E-Waste Recycling",
-    summary: "Understand what happens once your device leaves your desk and why certification matters.",
-    category: "Recycling Benefits",
+    title: "Understanding Registered Downstream Recyclers",
+    summary: "Why electronic waste must only go to verified, government-authorized processing facilities.",
+    category: "Recycling Standards",
     content: [
-      "Certified recyclers use depollution checklists that safely drain batteries, capture refrigerants, and track every component. This discipline prevents toxins from leaching into soil and makes sure valuable metals reach official smelters.",
-      "Audit-friendly partners issue Form-6 manifests, data destruction certificates, and extended producer responsibility credits. These documents protect you during ISO, ESG, or government inspections and demonstrate cradle-to-cradle accountability.",
-      "Choosing certified vendors also stimulates India's urban mining ecosystem. Each metric ton of recovered circuit boards can offset up to 2 tons of primary mining emissions, so your decision adds measurable climate impact.",
+      "Authorized recyclers follow strict pollution control guidelines. They safely drain lithium batteries, extract toxic flame retardants, and recover precious metals without burning or acid leaching.",
+      "Unlike the unorganized scrap sector, registered facilities provide verifiable documentation such as Form-6 manifests and recycling logs.",
+      "Reverta partners exclusively with verified downstream recyclers so every item collected from your school or community reaches a safe destination.",
     ],
   },
   {
-    title: "Compliance Checklist for Small Businesses",
-    summary: "Track the paperwork and partners you need to stay audit-ready all year.",
-    category: "Regulatory Updates",
-    content: [
-      "Maintain an asset disposal register that logs serial numbers, pickup dates, carrier names, and weight. Pair it with purchase invoices to prove responsible transfer when the Pollution Control Board requests evidence.",
-      "Map vendors to their certifications—look for CPCB authorization numbers, ISO 14001, and data-security attestations. Review them annually and keep digital copies in your compliance drive.",
-      "Schedule quarterly pickups instead of stockpiling. Smaller, frequent movements reduce fire risk and keep your annual returns (Form-2 or Form-4) aligned with real inventory levels.",
-    ],
-  },
-  {
-    title: "Hosting a Community Collection Drive",
-    summary: "Mobilize neighbors or employees to keep devices out of landfills with a repeatable plan.",
+    title: "Organising a School or Campus E-Waste Drive",
+    summary: "Simple steps for teachers, student councils, and environmental clubs to run a successful drive.",
     category: "Community Action",
     content: [
-      "Announce the drive two weeks in advance with a simple checklist of acceptable items. Encourage households to wipe data and bring devices in transparent bags for faster triage.",
-      "Set up three labeled bins—small electronics, cables, and batteries. Volunteers can quickly route each category to its safest processing stream.",
-      "Publish the results: total kilograms diverted, number of participants, and the downstream recycler. Celebrating tangible impact nudges people to declutter again within six months.",
+      "Announce the collection drive two weeks ahead of time. Share a one-page checklist of what students can bring from home.",
+      "Set up labeled collection cartons near the main reception or library for small electronics, cables, and dry batteries.",
+      "Celebrate the total weight collected with morning assembly announcements or certificates, encouraging long-term environmental habits.",
     ],
   },
-]
-
-const categories = [
-  { title: "Recycling Basics", description: "Plain-language explainers for households and first-time recyclers." },
-  { title: "Enterprise Playbooks", description: "Guides for IT teams managing refresh cycles, audits, and pickups." },
-  { title: "Regulatory Tracker", description: "Summaries of the latest Indian EPR targets, forms, and deadlines." },
-  { title: "Success Stories", description: "Proof that landfill diversion and data security can scale together." },
-]
-
-const complianceReminders = [
   {
-    icon: PenSquare,
-    text: "Document every asset transfer with Form-6 or delivery challans to close the audit trail.",
-  },
-  {
-    icon: BookOpenCheck,
-    text: "Train teams yearly on battery safety, data wipes, and labeling standards.",
-  },
-  {
-    icon: Building,
-    text: "Renew recycler MoUs and authorization certificates before they expire.",
-  },
-  {
-    icon: Recycle,
-    text: "Share quarterly diversion metrics with leadership to keep ESG goals visible.",
+    title: "Protecting Your Personal Data Before Handover",
+    summary: "Practical tips to make sure no personal information leaves your desk.",
+    category: "Data Privacy",
+    content: [
+      "Always sign out of iCloud, Google accounts, and email profiles before wiping phones or tablets.",
+      "For desktop and laptop hard drives, use standard disk-formatting tools or remove the drive if you wish to retain your storage media.",
+      "When in doubt, consult our team during campaign planning for simple step-by-step device clearing guides.",
+    ],
   },
 ]
 
@@ -97,28 +72,28 @@ export default function BlogPage() {
             role="dialog"
             aria-modal="true"
             aria-label={`${activeArticle.title} article`}
-            className="relative w-full max-w-3xl rounded-[32px] border border-border/40 bg-gradient-to-b from-background via-card to-card/95 p-6 sm:p-10 shadow-[0_25px_80px_rgba(15,23,42,0.35)] max-h-[85vh] overflow-y-auto"
+            className="relative w-full max-w-2xl rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-2xl max-h-[85vh] overflow-y-auto"
           >
             <button
               type="button"
               aria-label="Close article"
-              className="absolute top-5 right-5 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/50 text-muted-foreground hover:text-foreground hover:bg-foreground/5 transition"
+              className="absolute top-5 right-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground transition"
               onClick={() => setActiveArticle(null)}
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.4em] text-primary/80">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">
               {activeArticle.category}
-            </p>
-            <h3 className="mt-3 text-3xl font-semibold text-foreground leading-tight">{activeArticle.title}</h3>
-            <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground/90">
+            </span>
+            <h3 className="mt-2 text-2xl font-bold text-foreground leading-tight">{activeArticle.title}</h3>
+            <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted-foreground">
               {activeArticle.content.map((paragraph, index) => (
-                <div key={`${activeArticle.title}-${index}`} className="flex items-start gap-5">
-                  <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-base font-semibold text-primary">
+                <div key={index} className="flex items-start gap-3">
+                  <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
                     {index + 1}
                   </span>
-                  <p className="text-sm sm:text-base flex-1 leading-relaxed">{paragraph}</p>
+                  <p className="flex-1">{paragraph}</p>
                 </div>
               ))}
             </div>
@@ -126,114 +101,72 @@ export default function BlogPage() {
         </div>
       )}
 
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-secondary/10 to-background">
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="text-sm font-semibold text-primary uppercase tracking-[0.3em]"
-          >
-            Resource Center
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="mt-6 text-4xl sm:text-5xl font-bold text-foreground"
-          >
-            Practical Guides to Recycle Smarter Every Month
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.6 }}
-            className="mt-4 text-base sm:text-lg text-muted-foreground"
-          >
-            Blog articles cover recycling benefits, industry updates, disposal tips, and FAQs so anyone—families, facilities
-            teams, or compliance leads—can act with confidence.
-          </motion.p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="h-12 rounded-full bg-primary text-primary-foreground" asChild>
-              <a href="#articles">Start Reading</a>
-            </Button>
-            <Button variant="outline" className="h-12 rounded-full border-border" asChild>
-              <a href="#compliance">See Regulatory Notes</a>
-            </Button>
+      {/* Header */}
+      <section className="pt-32 pb-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-primary/5 via-background to-background">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="w-8 h-0.5 bg-primary rounded-full" />
+            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Resource Centre</span>
+            <div className="w-8 h-0.5 bg-primary rounded-full" />
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight">
+            Learn to dispose <span className="text-primary">responsibly.</span>
+          </h1>
+          <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Practical guides for households, schools, and apartment societies that want to understand e-waste and organise responsible collection campaigns.
+          </p>
+
+          {/* Legal Awareness Disclaimer */}
+          <div className="mt-8 p-4 rounded-2xl bg-muted/40 border border-border/80 max-w-2xl mx-auto flex items-start gap-3 text-left">
+            <Info className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              <strong>Notice:</strong> Our educational content is intended for general community awareness and does not constitute formal legal or regulatory advice. For statutory e-waste rules and producer mandates, please refer directly to official Ministry (MoEFCC) and CPCB guidelines.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
-          {categories.map((category) => (
-            <div key={category.title} className="rounded-2xl border border-border/60 p-6 bg-card/70">
-              <h3 className="text-xl font-semibold text-foreground">{category.title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground">{category.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="articles" className="py-8 px-4 sm:px-6 lg:px-8">
+      {/* Articles Grid */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 border-t border-border/50">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <div>
-              <h2 className="text-3xl font-bold text-foreground">Latest Articles</h2>
-              <p className="text-sm text-muted-foreground">
-                Curated guidance across recycling, compliance, and sustainability—no access requests needed.
-              </p>
-            </div>
-          </div>
-          <div className="mt-10 grid lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
             {articles.map((article) => (
-              <article key={article.title} className="rounded-3xl border border-border/60 p-6 bg-card/80 shadow-lg flex flex-col">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{article.category}</p>
-                <h3 className="mt-4 text-xl font-semibold text-foreground">{article.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground flex-1">{article.summary}</p>
-                <button
-                  type="button"
-                  className="mt-4 text-sm font-semibold text-primary hover:text-primary/80 text-left"
-                  onClick={() => setActiveArticle(article)}
-                >
-                  Read more →
-                </button>
+              <article key={article.title} className="rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col justify-between hover:border-primary/40 transition-all">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-primary">{article.category}</span>
+                  <h3 className="mt-3 text-xl font-bold text-foreground">{article.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{article.summary}</p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border/50">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-primary/80 transition-colors"
+                    onClick={() => setActiveArticle(article)}
+                  >
+                    Read Guide
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="compliance" className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-foreground">Regulatory Updates & Compliance Best Practices</h2>
-            <p className="mt-4 text-base text-muted-foreground">
-              Stay ahead of evolving Indian e-waste mandates with plain guidance you can apply during quarterly reviews or
-              your next collection drive.
-            </p>
-            <ul className="mt-6 space-y-4 text-sm text-muted-foreground">
-              <li>
-                • Track annual EPR targets in a shared sheet so procurement, sustainability, and finance stay aligned on
-                obligations.
-              </li>
-              <li>
-                • Align pickup receipts with Form-2 or Form-4 filings; mismatched numbers are the top reason for inspection
-                callbacks.
-              </li>
-              <li>
-                • Rotate community awareness sessions—battery safety one month, right-to-repair the next—to keep recycling
-                behavior consistent.
-              </li>
-            </ul>
-          </div>
-          <div className="rounded-3xl border border-border/60 bg-card/80 p-8 shadow-lg space-y-4">
-            {complianceReminders.map((item) => (
-              <div key={item.text} className="flex items-center gap-3">
-                <item.icon className="w-8 h-8 text-primary" />
-                <p className="text-sm text-muted-foreground">{item.text}</p>
-              </div>
-            ))}
+      {/* Bottom CTA */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20 border-t border-border/50">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Want to run a drive for your community?</h2>
+          <p className="mt-3 text-sm text-muted-foreground">
+            We provide all the guides, announcements, and logistics coordination needed to make your campaign a success.
+          </p>
+          <div className="mt-6">
+            <Button size="lg" className="rounded-xl px-7" asChild>
+              <Link href="/#contact">
+                Get in Touch
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

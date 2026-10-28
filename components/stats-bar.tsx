@@ -1,27 +1,27 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Shield, Award, Users } from "lucide-react"
+import { Sparkles, Users, Handshake } from "lucide-react"
 
 const stats = [
   {
-    icon: Award,
-    value: "ISO Certified",
-    label: "14001 & 27001 Standards",
+    icon: Sparkles,
+    value: "Awareness",
+    label: "Workshops & Guides",
     color: "text-amber-600",
     bg: "bg-amber-500/10",
   },
   {
-    icon: Shield,
-    value: "Zero Landfill",
-    label: "Our Commitment to You",
+    icon: Users,
+    value: "Community Drives",
+    label: "Schools, RWAs & Offices",
     color: "text-primary",
     bg: "bg-primary/10",
   },
   {
-    icon: Users,
-    value: "100% Secure",
-    label: "Data Destruction",
+    icon: Handshake,
+    value: "Safe Handover",
+    label: "Authorized Downstream Partners",
     color: "text-secondary",
     bg: "bg-secondary/10",
   },
@@ -37,10 +37,7 @@ export function StatsBar() {
         transition={{ duration: 0.6 }}
         className="max-w-5xl mx-auto"
       >
-        <div className="relative rounded-2xl lg:rounded-[2.25rem] border border-border/60 bg-background/80 backdrop-blur-xl shadow-[0px_24px_60px_-30px_rgba(15,23,42,0.65)] overflow-hidden">
-          {/* Soft gradient accent blending with background */}
-          <div className="absolute inset-x-8 top-0 h-px rounded-full bg-linear-to-r from-primary/40 via-secondary/30 to-primary/35" />
-
+        <div className="relative rounded-2xl lg:rounded-[2.25rem] border border-border/60 bg-background/80 backdrop-blur-xl shadow-lg overflow-hidden">
           <div className="grid md:grid-cols-3">
             {stats.map((stat, index) => (
               <motion.div
@@ -49,7 +46,7 @@ export function StatsBar() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 + 0.2 }}
-                className={`flex items-center gap-4 p-5 lg:p-7 bg-linear-to-br from-background/30 via-card/20 to-muted/30 transition-all duration-300 ${
+                className={`flex items-center gap-4 p-5 lg:p-7 transition-all duration-300 ${
                   index !== 0 ? "border-t md:border-t-0 md:border-l border-border/50" : ""
                 }`}
               >
@@ -59,8 +56,8 @@ export function StatsBar() {
                   <stat.icon className={`w-6 h-6 lg:w-7 lg:h-7 ${stat.color}`} />
                 </div>
                 <div>
-                  <p className="text-lg lg:text-xl font-bold text-foreground">{stat.value}</p>
-                  <p className="text-xs lg:text-sm text-muted-foreground">{stat.label}</p>
+                  <h4 className="text-xl lg:text-2xl font-bold text-foreground tracking-tight">{stat.value}</h4>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">{stat.label}</p>
                 </div>
               </motion.div>
             ))}

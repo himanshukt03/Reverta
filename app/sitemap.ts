@@ -14,7 +14,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
     },
     {
+      url: `${siteUrl}/schools-communities`,
+      lastModified: now,
+    },
+    {
       url: `${siteUrl}/blog`,
+      lastModified: now,
+    },
+    {
+      url: `${siteUrl}/privacy`,
+      lastModified: now,
+    },
+    {
+      url: `${siteUrl}/terms`,
       lastModified: now,
     },
   ]

@@ -3,7 +3,7 @@
 export function FloatingButtons() {
   return (
     <a
-      href="https://wa.me/?text=Hi%20Reverta!%20I%27d%20like%20to%20know%20more%20about%20your%20e-waste%20recycling%20services."
+      href="https://wa.me/919652409397?text=Hi%20Reverta!%20I%27d%20like%20to%20know%20more%20about%20organising%20an%20e-waste%20collection%20drive."
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg flex items-center justify-center hover:shadow-xl hover:bg-[#20BD5A] transition-all"

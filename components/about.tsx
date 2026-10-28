@@ -1,61 +1,54 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Leaf, Shield, Award, ArrowRight, Zap } from "lucide-react"
+import { Users, Truck, Handshake, Recycle, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 const features = [
   {
-    icon: Award,
-    title: "Government Authorized",
+    icon: Users,
+    title: "Awareness First",
   },
   {
-    icon: Shield,
-    title: "ISO-Compliant Processes",
+    icon: Truck,
+    title: "Convenient Drives",
   },
   {
-    icon: Leaf,
-    title: "Zero Landfill Policy",
+    icon: Handshake,
+    title: "Verified Handover",
   },
   {
-    icon: Zap,
-    title: "Fast Processing",
+    icon: Recycle,
+    title: "Responsible Routing",
   },
 ]
 
 export function About() {
   return (
-    <section id="about" className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="about" className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Visual */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative order-2 lg:order-1 w-full max-w-xl lg:justify-self-end"
+            className="relative order-2 lg:order-1 w-full max-w-xl mx-auto lg:mx-0"
           >
-            {/* Background decoration */}
-            <div className="absolute -inset-4 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl -z-10" />
-
-            {/* Main image */}
-            <div className="relative aspect-[4/3] rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl bg-card border border-border/50">
               <img
                 src="/people-recycling.svg"
-                alt="Reverta Sustainable Solutions technicians dismantling electronics for responsible recycling in India"
-                className="object-cover object-right w-full h-full"
+                alt="Community e-waste awareness and responsible recycling"
+                className="w-full h-full object-cover"
               />
-              {/* Softer overlay to reveal more image on the right */}
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 via-transparent to-transparent" />
             </div>
-
-            <div className="absolute -top-3 -left-3 w-20 h-20 bg-primary/10 rounded-2xl -z-10 sm:hidden" />
           </motion.div>
 
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -67,23 +60,22 @@ export function About() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight text-balance">
-              Building a <span className="text-primary">Sustainable</span> Future
+              Connecting awareness with <span className="text-primary">real action.</span>
             </h2>
 
-            <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
-              Reverta Sustainable Solutions Private Limited is committed to transforming electronic waste management in
-              India. Our vision is to achieve a zero-landfill future through responsible collection, recycling, and
-              repurposing.
+            <p className="mt-5 text-muted-foreground text-base sm:text-lg leading-relaxed">
+              Reverta is an e-waste awareness and collection coordination platform. Inspired by grassroots work alongside NGreenTech, we help schools, residential communities, and workplaces run hassle-free collection drives, ensuring every item is safely routed to verified downstream recycling partners.
             </p>
 
-            <div className="mt-10 grid grid-cols-2 gap-4">
+            {/* 2x2 simplified badges exactly like Image 2 */}
+            <div className="mt-8 grid grid-cols-2 gap-4">
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.title}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.08 }}
                   className="flex items-center gap-3"
                 >
                   <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -94,19 +86,19 @@ export function About() {
               ))}
             </div>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Button className="rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-6" asChild>
-                <Link href="#contact">
-                  Get Started
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <Button className="h-11 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold px-5 shadow-sm" asChild>
+                <Link href="/#contact">
+                  Organise a Drive
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
               <Button
                 variant="outline"
-                className="rounded-xl border-border hover:border-primary/30 text-foreground h-12 px-6 bg-transparent"
+                className="h-11 rounded-xl border-border hover:border-primary/30 text-foreground text-sm font-medium px-5 bg-transparent"
                 asChild
               >
-                <Link href="#services">Our Services</Link>
+                <Link href="/about">Learn Our Story</Link>
               </Button>
             </div>
           </motion.div>

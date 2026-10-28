@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 const siteUrl = "https://reverta.in"
 const companyName = "Reverta Sustainable Solutions"
 const companyLegalName = "Reverta Sustainable Solutions Private Limited"
-const companyTagline = "Your trusted pan-India e-waste recycling partner"
-const companyPhone = "+91 11 2345 6789"
-const companyEmail = "info@reverta.in"
+const companyTagline = "E-Waste Awareness & Collection Coordination"
+const companyPhone = "+91 9652409397"
+const companyEmail = "hello@reverta.in"
 const companyAddress =
   "2nd Floor, 66, 1st Main Rd, above Axis Bank, 2nd Stage, 3rd Stage, Basaveshwar Nagar, Bengaluru, Karnataka 560079"
 const companyCoordinates = { latitude: 12.9945, longitude: 77.5385 }
@@ -26,22 +26,19 @@ const companyCoordinates = { latitude: 12.9945, longitude: 77.5385 }
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Reverta Sustainable Solutions | Trusted E-Waste Company in India",
+    default: "Reverta Sustainable Solutions | E-Waste Awareness & Collection Coordination",
     template: "%s | Reverta Sustainable Solutions",
   },
   description:
-    `${companyName} delivers secure data destruction, ITAD, and responsible e-waste recycling with ISO-compliant processes across India. Trusted reverta ewaste company for pickups, reporting, and zero-landfill outcomes.`,
+    "Reverta helps households, schools, residential communities and businesses organise responsible e-waste awareness and collection campaigns, coordinating safe handover to verified downstream partners.",
   keywords: [
     "reverta sustainable solutions",
     "reverta ewaste",
-    "reverta ewaste company",
-    "e-waste management india",
-    "electronic waste recycling",
-    "secure data destruction",
-    "IT asset disposition",
-    "ewaste pickup near me",
-    "bengaluru e-waste recycler",
-    "iso 14001 ewaste",
+    "e-waste collection drive",
+    "school e-waste campaign",
+    "apartment e-waste collection",
+    "community e-waste drive bengaluru",
+    "responsible e-waste awareness",
   ],
   generator: "v0.app",
   applicationName: companyName,
@@ -49,17 +46,17 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: `${companyName} | Trusted E-Waste Company in India`,
+    title: `${companyName} | E-Waste Awareness & Collection Coordination`,
     description:
-      `${companyName} provides certified e-waste recycling, IT asset disposition, and secure data destruction with nationwide pickup coverage.`,
+      "Reverta helps households, schools, residential communities and businesses organise responsible e-waste awareness and collection campaigns.",
     url: siteUrl,
     siteName: companyName,
     images: [
       {
-        url: "/people-recycling.svg",
+        url: "/people-recycling.jpg",
         width: 1600,
         height: 900,
-        alt: `${companyName} technicians dismantling electronics for responsible recycling`,
+        alt: `${companyName} community e-waste collection and awareness initiative`,
       },
     ],
     locale: "en_US",
@@ -67,10 +64,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${companyName} | E-Waste & ITAD`,
+    title: `${companyName} | E-Waste Awareness & Collection`,
     description:
-      `${companyName} handles e-waste collection, certified recycling, and data destruction across India with zero-landfill outcomes.`,
-    images: ["/people-recycling.svg"],
+      "Reverta coordinates community collection drives and connects e-waste to verified downstream partners.",
+    images: ["/people-recycling.jpg"],
   },
   robots: {
     index: true,
@@ -94,7 +91,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -108,8 +105,8 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': ['Organization', 'LocalBusiness'],
+              "@context": "https://schema.org",
+              "@type": ["Organization"],
               name: companyName,
               legalName: companyLegalName,
               url: siteUrl,
@@ -119,69 +116,42 @@ export default function RootLayout({
               image: `${siteUrl}/logos/reverta_fullLogoBlack.png`,
               logo: `${siteUrl}/logos/reverta_fullLogoBlack.png`,
               sameAs: [
-                'https://www.facebook.com',
-                'https://www.linkedin.com',
-                'https://www.twitter.com',
-                'https://www.instagram.com',
+                "https://www.facebook.com",
+                "https://www.linkedin.com",
+                "https://www.twitter.com",
+                "https://www.instagram.com",
               ],
               address: {
-                '@type': 'PostalAddress',
+                "@type": "PostalAddress",
                 streetAddress: companyAddress,
-                addressLocality: 'Bengaluru',
-                addressRegion: 'Karnataka',
-                postalCode: '560079',
-                addressCountry: 'IN',
+                addressLocality: "Bengaluru",
+                addressRegion: "Karnataka",
+                postalCode: "560079",
+                addressCountry: "IN",
               },
               geo: {
-                '@type': 'GeoCoordinates',
+                "@type": "GeoCoordinates",
                 latitude: companyCoordinates.latitude,
                 longitude: companyCoordinates.longitude,
               },
-              openingHoursSpecification: [
-                {
-                  '@type': 'OpeningHoursSpecification',
-                  dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-                  opens: '09:00',
-                  closes: '18:00',
-                },
-                {
-                  '@type': 'OpeningHoursSpecification',
-                  dayOfWeek: 'Saturday',
-                  opens: '09:00',
-                  closes: '14:00',
-                },
-              ],
               contactPoint: [
                 {
-                  '@type': 'ContactPoint',
+                  "@type": "ContactPoint",
                   telephone: companyPhone,
-                  contactType: 'customer support',
+                  contactType: "campaign support",
                   email: companyEmail,
-                  areaServed: 'IN',
-                  availableLanguage: ['en', 'hi'],
+                  areaServed: "IN",
+                  availableLanguage: ["en", "hi", "kn"],
                 },
               ],
-            }),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebSite',
-              name: companyName,
-              url: siteUrl,
-              potentialAction: {
-                '@type': 'SearchAction',
-                target: `${siteUrl}/?s={search_term_string}`,
-                'query-input': 'required name=search_term_string',
-              },
             }),
           }}
         />
       </head>
-      <body className={`${plusJakartaSans.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body
+        className={`${plusJakartaSans.variable} ${geistMono.variable} font-sans antialiased`}
+        suppressHydrationWarning
+      >
         {children}
         <Analytics />
       </body>

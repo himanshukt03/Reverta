@@ -15,15 +15,11 @@ export function Partners() {
     <section id="partners" className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-muted/20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center max-w-3xl mx-auto">
-          <motion.span
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="text-xs font-bold uppercase tracking-[0.3em] text-primary"
-          >
-            Partners
-          </motion.span>
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <div className="w-8 h-0.5 bg-primary rounded-full" />
+            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Partners</span>
+            <div className="w-8 h-0.5 bg-primary rounded-full" />
+          </div>
           <motion.h2
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
