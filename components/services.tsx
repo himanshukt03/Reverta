@@ -89,15 +89,17 @@ export function Services() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <Link
-            href="/#contact"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
-          >
-            Ready to plan a campaign for your organization?
-            <span className="underline">Get in touch with us</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+        <div className="mt-10 sm:mt-12 text-center px-4">
+          <p className="text-xs sm:text-sm text-muted-foreground flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2">
+            <span>Ready to plan a campaign for your organization?</span>
+            <Link
+              href="/#contact"
+              className="inline-flex items-center gap-1 font-semibold text-primary hover:text-primary/80 transition-colors underline underline-offset-4"
+            >
+              <span>Get in touch with us</span>
+              <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+            </Link>
+          </p>
         </div>
       </div>
     </section>

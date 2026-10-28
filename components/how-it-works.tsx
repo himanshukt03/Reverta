@@ -139,17 +139,14 @@ export function HowItWorks() {
           </div>
         </div>
 
-        {/* Simplified Bottom Toast / Note */}
-        <div className="mt-12 max-w-3xl mx-auto p-5 rounded-2xl bg-muted/40 border border-border/80 flex items-start gap-4 text-left">
-          <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
-            <Shield className="w-5 h-5" />
+        {/* Transparent Promise Note (Shorter & Compact) */}
+        <div className="mt-10 sm:mt-12 max-w-2xl mx-auto p-4 rounded-xl sm:rounded-2xl bg-muted/40 border border-border/70 flex items-center gap-3 text-left">
+          <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+            <Shield className="w-4 h-4" />
           </div>
-          <div>
-            <h4 className="font-semibold text-foreground text-sm">Our Transparent Promise</h4>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed">
-              We focus on community awareness, campaign planning, and convenient collection. We do not claim to operate an in-house recycling facility. All processing and recovery is handled by verified, authorized downstream partners under documented arrangements.
-            </p>
-          </div>
+          <p className="text-xs sm:text-sm text-muted-foreground leading-snug">
+            <strong className="font-semibold text-foreground">Our Promise:</strong> We manage community awareness and drive logistics; all recycling is handled by verified, authorized downstream partners.
+          </p>
         </div>
       </div>
     </section>

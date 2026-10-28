@@ -239,7 +239,7 @@ export function Contact() {
             viewport={{ once: true }}
             className="lg:col-span-3"
           >
-            <div className="bg-card rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-sm border border-border">
+            <div className="bg-card rounded-2xl lg:rounded-3xl p-5 sm:p-7 lg:p-8 shadow-sm border border-border">
               {isSubmitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -258,7 +258,7 @@ export function Contact() {
                   </Button>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                   {/* Honeypot field for anti-spam bots */}
                   <div className="hidden" aria-hidden="true">
                     <input
@@ -271,15 +271,15 @@ export function Contact() {
                   </div>
 
                   {errorMessage && (
-                    <div className="p-3.5 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive flex items-start gap-2.5 text-xs">
+                    <div className="p-3 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive flex items-start gap-2.5 text-xs">
                       <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
                       <span>{errorMessage}</span>
                     </div>
                   )}
 
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-xs font-medium text-foreground mb-1.5">
+                      <label htmlFor="name" className="block text-xs font-medium text-foreground mb-1">
                         Your Full Name *
                       </label>
                       <Input
@@ -289,12 +289,12 @@ export function Contact() {
                         placeholder="Full name"
                         maxLength={70}
                         required
-                        className="h-11 rounded-xl"
+                        className="h-10 sm:h-11 rounded-xl text-xs sm:text-sm"
                       />
                     </div>
                     <div>
-                      <label htmlFor="organization" className="block text-xs font-medium text-foreground mb-1.5">
-                        Organisation or Community Name *
+                      <label htmlFor="organization" className="block text-xs font-medium text-foreground mb-1">
+                        Organisation or Community *
                       </label>
                       <Input
                         id="organization"
@@ -303,14 +303,14 @@ export function Contact() {
                         placeholder="Organisation or society name"
                         maxLength={90}
                         required
-                        className="h-11 rounded-xl"
+                        className="h-10 sm:h-11 rounded-xl text-xs sm:text-sm"
                       />
                     </div>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
-                      <label htmlFor="email" className="block text-xs font-medium text-foreground mb-1.5">
+                      <label htmlFor="email" className="block text-xs font-medium text-foreground mb-1">
                         Email Address *
                       </label>
                       <Input
@@ -320,11 +320,11 @@ export function Contact() {
                         placeholder="Email address"
                         maxLength={80}
                         required
-                        className="h-11 rounded-xl"
+                        className="h-10 sm:h-11 rounded-xl text-xs sm:text-sm"
                       />
                     </div>
                     <div>
-                      <label htmlFor="phone" className="block text-xs font-medium text-foreground mb-1.5">
+                      <label htmlFor="phone" className="block text-xs font-medium text-foreground mb-1">
                         Phone Number *
                       </label>
                       <Input
@@ -334,21 +334,21 @@ export function Contact() {
                         placeholder="Phone number"
                         maxLength={16}
                         required
-                        className="h-11 rounded-xl"
+                        className="h-10 sm:h-11 rounded-xl text-xs sm:text-sm"
                       />
                     </div>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
-                      <label htmlFor="category" className="block text-xs font-medium text-foreground mb-1.5">
+                      <label htmlFor="category" className="block text-xs font-medium text-foreground mb-1">
                         I am contacting Reverta as: *
                       </label>
                       <select
                         id="category"
                         name="category"
                         required
-                        className="w-full h-11 px-3 text-sm rounded-xl border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                        className="w-full h-10 sm:h-11 px-3 text-xs sm:text-sm rounded-xl border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                       >
                         <option value="">Select an option</option>
                         <option value="School / College">School / College</option>
@@ -359,7 +359,7 @@ export function Contact() {
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="location" className="block text-xs font-medium text-foreground mb-1.5">
+                      <label htmlFor="location" className="block text-xs font-medium text-foreground mb-1">
                         Location / PIN Code *
                       </label>
                       <Input
@@ -369,43 +369,42 @@ export function Contact() {
                         placeholder="Location / PIN code"
                         maxLength={60}
                         required
-                        className="h-11 rounded-xl"
+                        className="h-10 sm:h-11 rounded-xl text-xs sm:text-sm"
                       />
                     </div>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  {/* Paired Quantity and Preferred Date side-by-side to save mobile vertical height */}
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     <div>
-                      <label htmlFor="quantity" className="block text-xs font-medium text-foreground mb-1.5">
-                        Approximate Quantity of E-Waste (in kgs)
+                      <label htmlFor="quantity" className="block text-xs font-medium text-foreground mb-1 truncate">
+                        Quantity (in kgs)
                       </label>
                       <Input
                         id="quantity"
                         name="quantity"
                         type="text"
-                        placeholder="e.g. 50 kg, 100 kg, or 5-10 boxes"
+                        placeholder="e.g. 50 kg"
                         maxLength={50}
-                        className="h-11 rounded-xl"
+                        className="h-10 sm:h-11 rounded-xl text-xs sm:text-sm"
                       />
                     </div>
                     <div>
-                      <label htmlFor="preferred_date" className="block text-xs font-medium text-foreground mb-1.5">
-                        Preferred Drive Date
+                      <label htmlFor="preferred_date" className="block text-xs font-medium text-foreground mb-1 truncate">
+                        Preferred Date
                       </label>
-                      <div className="relative">
-                        <Input
-                          id="preferred_date"
-                          name="preferred_date"
-                          type="date"
-                          min={minDate}
-                          className="h-11 rounded-xl pr-10 cursor-pointer"
-                        />
-                      </div>
+                      <Input
+                        id="preferred_date"
+                        name="preferred_date"
+                        type="date"
+                        min={minDate}
+                        className="h-10 sm:h-11 rounded-xl text-xs sm:text-sm cursor-pointer"
+                      />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-xs font-medium text-foreground mb-1.5">
+                    <label htmlFor="message" className="block text-xs font-medium text-foreground mb-1">
                       Additional Details
                     </label>
                     <Textarea
@@ -413,15 +412,15 @@ export function Contact() {
                       name="message"
                       placeholder="Any additional details or questions..."
                       maxLength={1000}
-                      rows={3}
-                      className="rounded-xl resize-none text-sm"
+                      rows={2}
+                      className="rounded-xl resize-none text-xs sm:text-sm"
                     />
                   </div>
 
-                  <div className="pt-2">
+                  <div className="pt-1.5 sm:pt-2">
                     <Button
                       type="submit"
-                      className="w-full h-12 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm shadow-md shadow-primary/20"
+                      className="w-full h-11 sm:h-12 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs sm:text-sm shadow-md shadow-primary/20"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
@@ -433,7 +432,7 @@ export function Contact() {
                         "Submit Campaign Enquiry"
                       )}
                     </Button>
-                    <p className="mt-2 text-center text-xs text-muted-foreground">
+                    <p className="mt-2 text-center text-[11px] sm:text-xs text-muted-foreground">
                       We will review details and connect with you.
                     </p>
                   </div>
