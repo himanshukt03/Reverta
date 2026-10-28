@@ -21,28 +21,9 @@ import {
   Cable,
   ArrowRight,
   Sparkles,
-  Shield,
   FileText,
   Calendar,
 } from "lucide-react"
-
-const principles = [
-  {
-    icon: Sparkles,
-    title: "Awareness Creates Understanding",
-    description: "Clear, practical guidance on why e-waste should not end up in municipal bins.",
-  },
-  {
-    icon: Users,
-    title: "Convenience Drives Action",
-    description: "Bringing collection points directly to apartment gates, schools, and offices.",
-  },
-  {
-    icon: Handshake,
-    title: "Partnerships Create Pathways",
-    description: "Connecting community drives directly with registered, authorized downstream recyclers.",
-  },
-]
 
 const services = [
   {
@@ -123,20 +104,11 @@ export default function AboutPage() {
               Inspired by grassroots environmental action
             </h2>
             <p className="mt-4 text-base text-muted-foreground leading-relaxed">
-              Our direction is inspired by grassroots environmental awareness and collection initiatives associated with NGreenTech. We realized that while industrial recyclers operate large processing plants, everyday citizens are left without an accessible bridge to reach them.
+              Our direction is inspired by grassroots environmental awareness and collection initiatives associated with NGreenTech. We realized that while industrial recyclers operate large processing plants, everyday citizens are often left without an accessible bridge to reach them.
             </p>
             <p className="mt-3 text-base text-muted-foreground leading-relaxed">
-              Reverta focuses exclusively on that critical front end: creating awareness, organizing community collection campaigns, and coordinating handover to appropriate downstream partners.
+              Reverta focuses on that critical front end — creating awareness, organizing community collection campaigns, and coordinating safe handover to verified downstream partners who handle all recycling and recovery.
             </p>
-            <div className="mt-6 p-4 rounded-2xl bg-card border border-border">
-              <h4 className="font-semibold text-foreground text-sm flex items-center gap-2">
-                <Shield className="w-4 h-4 text-primary" />
-                Our Role & Transparency
-              </h4>
-              <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                Reverta acts as a facilitator and campaign coordinator. We do not claim to operate an in-house recycling facility or hold authorisations we do not have. Downstream processing is carried out by verified partners.
-              </p>
-            </div>
           </div>
 
           <div className="relative">
@@ -151,33 +123,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Core Principles */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20 border-t border-border/50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <div className="w-8 h-0.5 bg-primary rounded-full" />
-              <span className="text-xs font-semibold text-primary uppercase tracking-wider">What We Believe</span>
-              <div className="w-8 h-0.5 bg-primary rounded-full" />
-            </div>
-            <h2 className="text-3xl font-bold text-foreground">How we create lasting impact</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {principles.map((p, i) => (
-              <div key={p.title} className="p-6 rounded-2xl bg-card border border-border">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
-                  <p.icon className="w-5 h-5" />
-                </div>
-                <h3 className="font-bold text-foreground text-base mb-2">{p.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{p.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Services Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 border-t border-border/50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20 border-t border-border/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -202,7 +149,7 @@ export default function AboutPage() {
       </section>
 
       {/* Accepted Items */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20 border-t border-border/50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 border-t border-border/50">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-3">
             <div className="w-8 h-0.5 bg-primary rounded-full" />
@@ -225,7 +172,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 border-t border-border/50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20 border-t border-border/50">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-foreground">Ready to organise a drive?</h2>
           <p className="mt-3 text-muted-foreground text-sm sm:text-base">
