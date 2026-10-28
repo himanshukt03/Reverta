@@ -67,43 +67,49 @@ export function HowItWorks() {
           </p>
         </motion.div>
 
-        {/* Desktop & Tablet Grid: Styled after the Exponential Scaling Framework reference */}
+        {/* Desktop 5-Card Grid: ModelCards Component Style with Green Theme */}
         <div className="mt-14 hidden md:block">
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5">
             {steps.map((step, index) => (
-              <motion.div
-                key={step.title}
+              <motion.article
+                key={step.num}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
-                className="group bg-card rounded-2xl border border-border/70 shadow-xs hover:shadow-md hover:border-primary/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                className="group relative bg-card rounded-2xl border border-border/80 p-7 min-h-[290px] overflow-hidden shadow-xs hover:shadow-md hover:border-primary/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start"
               >
-                {/* Header: Subtle tinted top area with Icon on left + Large Watermark Number on right */}
-                <div className="p-6 pb-4 bg-gradient-to-b from-primary/[0.08] via-primary/[0.03] to-transparent flex items-start justify-between">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-200">
-                    <step.icon className="w-6 h-6 stroke-[1.8]" />
-                  </div>
-                  <span className="text-4xl font-extrabold text-foreground/15 group-hover:text-primary/25 transition-colors font-sans select-none tracking-tight">
-                    {step.num}
-                  </span>
+                {/* Corner polygon slice matching the CSS clip-path */}
+                <div
+                  className="absolute top-0 right-0 w-24 h-24 bg-primary/[0.08] pointer-events-none transition-colors group-hover:bg-primary/[0.14]"
+                  style={{ clipPath: "polygon(100% 0, 0 100%, 100% 100%)" }}
+                />
+
+                {/* Big watermark step number */}
+                <span className="absolute top-3.5 right-4 font-bold text-primary/25 group-hover:text-primary/35 transition-colors text-5xl leading-none select-none pointer-events-none font-sans">
+                  {step.num}
+                </span>
+
+                {/* Card Icon in Reverta Green */}
+                <div className="w-11 h-11 text-primary mb-6 flex items-center justify-start flex-shrink-0">
+                  <step.icon className="w-10 h-10 stroke-[1.8]" />
                 </div>
 
-                {/* Body Content */}
-                <div className="p-6 pt-2 flex-1 flex flex-col justify-start">
-                  <h3 className="font-bold text-foreground text-base mb-2 group-hover:text-primary transition-colors leading-snug">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </motion.div>
+                {/* Title */}
+                <h3 className="font-bold text-foreground text-lg mb-2.5 leading-snug group-hover:text-primary transition-colors">
+                  {step.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {step.description}
+                </p>
+              </motion.article>
             ))}
           </div>
         </div>
 
-        {/* Mobile slim vertical timeline with connecting line */}
+        {/* Mobile slim vertical timeline with continuous connecting line */}
         <div className="mt-10 md:hidden relative max-w-md mx-auto">
           {/* Continuous vertical connecting line */}
           <div className="absolute left-[26px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-primary/30 via-primary/50 to-primary/30" />
@@ -111,7 +117,7 @@ export function HowItWorks() {
           <div className="space-y-3 relative">
             {steps.map((step, index) => (
               <motion.div
-                key={step.title}
+                key={step.num}
                 initial={{ opacity: 0, x: -15 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
