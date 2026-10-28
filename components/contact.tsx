@@ -1,9 +1,9 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { MapPin, Phone, Mail, ArrowRight, CheckCircle2, AlertCircle, Loader2 } from "lucide-react"
+import { MapPin, Phone, Mail, ArrowRight, CheckCircle2, AlertCircle, Loader2, Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -26,49 +26,141 @@ const contactInfo = [
   },
 ]
 
+// Security: 60-second rate-limiting cooldown per browser
+const RATE_LIMIT_COOLDOWN_MS = 60 * 1000
+const RATE_LIMIT_KEY = "reverta_last_form_submission_timestamp"
+
 export function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [minDate, setMinDate] = useState<string>("")
+  const formMountTimeRef = useRef<number>(Date.now())
+
+  useEffect(() => {
+    // Set min date to today so users cannot pick past dates
+    const today = new Date().toISOString().split("T")[0]
+    setMinDate(today)
+    formMountTimeRef.current = Date.now()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsSubmitting(true)
     setErrorMessage(null)
 
     const form = e.currentTarget
     const formData = new FormData(form)
 
-    const accessKey =
-      process.env.NEXT_PUBLIC_SNAPITFORMS_ACCESS_KEY ||
-      (formData.get("access_key") as string) ||
-      ""
-
-    if (!accessKey) {
-      setErrorMessage(
-        "SnapItForms Access Key is not configured yet. Please configure NEXT_PUBLIC_SNAPITFORMS_ACCESS_KEY or reach out directly to hello@reverta.in."
-      )
-      setIsSubmitting(false)
+    // Security Check 1: Honeypot trap check for automated spam bots
+    const honeypot = (formData.get("_gotcha") as string) || ""
+    if (honeypot.trim().length > 0) {
+      // Silently reject bot without consuming SnapItForms submission quota
+      setIsSubmitting(true)
+      setTimeout(() => {
+        setIsSubmitting(false)
+        setIsSubmitted(true)
+      }, 500)
       return
     }
 
-    try {
-      formData.set("access_key", accessKey)
-      formData.set("subject", "New Reverta Campaign Enquiry")
+    // Security Check 2: Time-to-fill bot protection (reject sub-second submissions)
+    const elapsedMs = Date.now() - formMountTimeRef.current
+    if (elapsedMs < 1500) {
+      setErrorMessage("Submission detected too quickly. Please take a moment and try again.")
+      return
+    }
 
-      const object = Object.fromEntries(formData.entries())
+    // Security Check 3: Client-side rate-limiting cooldown (60 seconds)
+    const lastSubmission = localStorage.getItem(RATE_LIMIT_KEY)
+    if (lastSubmission) {
+      const timeSinceLast = Date.now() - parseInt(lastSubmission, 10)
+      if (timeSinceLast < RATE_LIMIT_COOLDOWN_MS) {
+        const remainingSeconds = Math.ceil((RATE_LIMIT_COOLDOWN_MS - timeSinceLast) / 1000)
+        setErrorMessage(
+          `Please wait ${remainingSeconds} second${remainingSeconds === 1 ? "" : "s"} before submitting another campaign enquiry.`
+        )
+        return
+      }
+    }
+
+    // Validation Check 4: Input validation & trimming
+    const name = ((formData.get("name") as string) || "").trim()
+    const organization = ((formData.get("organization") as string) || "").trim()
+    const email = ((formData.get("email") as string) || "").trim()
+    const phone = ((formData.get("phone") as string) || "").trim()
+    const category = ((formData.get("category") as string) || "").trim()
+    const location = ((formData.get("location") as string) || "").trim()
+    const quantity = ((formData.get("quantity") as string) || "").trim()
+    const preferredDate = ((formData.get("preferred_date") as string) || "").trim()
+    const message = ((formData.get("message") as string) || "").trim()
+
+    if (!name || name.length < 2) {
+      setErrorMessage("Please enter your full name (at least 2 characters).")
+      return
+    }
+
+    if (!organization || organization.length < 2) {
+      setErrorMessage("Please enter your organisation or community name.")
+      return
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      setErrorMessage("Please enter a valid email address.")
+      return
+    }
+
+    const phoneRegex = /^[0-9+() -]{7,16}$/
+    if (!phoneRegex.test(phone)) {
+      setErrorMessage("Please enter a valid phone number (at least 7 digits).")
+      return
+    }
+
+    if (!category) {
+      setErrorMessage("Please select your organisation category.")
+      return
+    }
+
+    if (!location || location.length < 2) {
+      setErrorMessage("Please enter your location or PIN code.")
+      return
+    }
+
+    const accessKey =
+      process.env.NEXT_PUBLIC_SNAPITFORMS_ACCESS_KEY ||
+      "sf_f57661411e90800ab9e359a1bfe00e78"
+
+    setIsSubmitting(true)
+
+    try {
+      const payload = {
+        access_key: accessKey,
+        subject: `New Campaign Enquiry: ${organization} (${name})`,
+        name,
+        organization,
+        email,
+        phone,
+        category,
+        location,
+        quantity_in_kgs: quantity,
+        preferred_drive_date: preferredDate,
+        additional_details: message,
+      }
+
       const response = await fetch("https://api.snapitforms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(object),
+        body: JSON.stringify(payload),
       })
 
       const data = await response.json().catch(() => ({}))
 
       if (response.ok && data.success !== false) {
+        // Record timestamp for rate limiting
+        localStorage.setItem(RATE_LIMIT_KEY, Date.now().toString())
         setIsSubmitted(true)
         form.reset()
       } else {
@@ -79,7 +171,7 @@ export function Contact() {
       }
     } catch (err) {
       setErrorMessage(
-        "Network error while connecting to SnapItForms. Please check your connection or email hello@reverta.in."
+        "Network connection error. Please check your internet or reach out directly at hello@reverta.in."
       )
     } finally {
       setIsSubmitting(false)
@@ -159,7 +251,7 @@ export function Contact() {
                   </div>
                   <h3 className="text-2xl font-bold text-foreground">Thank You!</h3>
                   <p className="mt-2 text-sm text-muted-foreground max-w-sm leading-relaxed">
-                    We have received your enquiry. Our team will contact you to discuss the details and arrange your collection drive.
+                    We have received your enquiry. Our team will contact you shortly to confirm logistics and plan your drive.
                   </p>
                   <Button className="mt-6 rounded-xl" onClick={() => setIsSubmitted(false)}>
                     Submit Another Request
@@ -167,17 +259,16 @@ export function Contact() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  {/* Hidden fields for SnapItForms */}
-                  <input
-                    type="hidden"
-                    name="access_key"
-                    value={process.env.NEXT_PUBLIC_SNAPITFORMS_ACCESS_KEY || ""}
-                  />
-                  <input
-                    type="hidden"
-                    name="subject"
-                    value="New Reverta Campaign Enquiry"
-                  />
+                  {/* Honeypot field for anti-spam bots */}
+                  <div className="hidden" aria-hidden="true">
+                    <input
+                      type="text"
+                      name="_gotcha"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                    />
+                  </div>
 
                   {errorMessage && (
                     <div className="p-3.5 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive flex items-start gap-2.5 text-xs">
@@ -196,6 +287,7 @@ export function Contact() {
                         name="name"
                         type="text"
                         placeholder="Full name"
+                        maxLength={70}
                         required
                         className="h-11 rounded-xl"
                       />
@@ -209,6 +301,7 @@ export function Contact() {
                         name="organization"
                         type="text"
                         placeholder="Organisation or society name"
+                        maxLength={90}
                         required
                         className="h-11 rounded-xl"
                       />
@@ -225,6 +318,7 @@ export function Contact() {
                         name="email"
                         type="email"
                         placeholder="Email address"
+                        maxLength={80}
                         required
                         className="h-11 rounded-xl"
                       />
@@ -238,6 +332,7 @@ export function Contact() {
                         name="phone"
                         type="tel"
                         placeholder="Phone number"
+                        maxLength={16}
                         required
                         className="h-11 rounded-xl"
                       />
@@ -272,6 +367,7 @@ export function Contact() {
                         name="location"
                         type="text"
                         placeholder="Location / PIN code"
+                        maxLength={60}
                         required
                         className="h-11 rounded-xl"
                       />
@@ -281,13 +377,14 @@ export function Contact() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="quantity" className="block text-xs font-medium text-foreground mb-1.5">
-                        Approximate Quantity of E-Waste
+                        Approximate Quantity of E-Waste (in kgs)
                       </label>
                       <Input
                         id="quantity"
                         name="quantity"
                         type="text"
-                        placeholder="Estimated quantity or items"
+                        placeholder="e.g. 50 kg, 100 kg, or 5-10 boxes"
+                        maxLength={50}
                         className="h-11 rounded-xl"
                       />
                     </div>
@@ -295,13 +392,15 @@ export function Contact() {
                       <label htmlFor="preferred_date" className="block text-xs font-medium text-foreground mb-1.5">
                         Preferred Drive Date
                       </label>
-                      <Input
-                        id="preferred_date"
-                        name="preferred_date"
-                        type="text"
-                        placeholder="Preferred date or month"
-                        className="h-11 rounded-xl"
-                      />
+                      <div className="relative">
+                        <Input
+                          id="preferred_date"
+                          name="preferred_date"
+                          type="date"
+                          min={minDate}
+                          className="h-11 rounded-xl pr-10 cursor-pointer"
+                        />
+                      </div>
                     </div>
                   </div>
 
@@ -313,6 +412,7 @@ export function Contact() {
                       id="message"
                       name="message"
                       placeholder="Any additional details or questions..."
+                      maxLength={1000}
                       rows={3}
                       className="rounded-xl resize-none text-sm"
                     />
