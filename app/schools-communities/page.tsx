@@ -35,15 +35,15 @@ export default function SchoolsAndCommunitiesPage() {
           <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             One campaign can bring hundreds of people together. We help schools, colleges, apartment societies, and local brands turn e-waste disposal into an engaging community experience.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-7" asChild>
-              <Link href="/#contact">
-                Organise a Campaign
-                <ArrowRight className="ml-2 w-4 h-4" />
+          <div className="mt-8 grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-2.5 sm:gap-4 max-w-sm sm:max-w-none mx-auto">
+            <Button size="lg" className="w-full sm:w-auto h-11 sm:h-12 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-xs sm:text-sm font-semibold px-2.5 sm:px-7" asChild>
+              <Link href="/#contact" className="truncate">
+                Organise Drive
+                <ArrowRight className="ml-1 sm:ml-2 w-3.5 h-3.5 shrink-0" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="rounded-xl px-7" asChild>
-              <Link href="#reward-partners">Reward Partnerships</Link>
+            <Button size="lg" variant="outline" className="w-full sm:w-auto h-11 sm:h-12 rounded-xl text-xs sm:text-sm px-2.5 sm:px-7" asChild>
+              <Link href="#reward-partners" className="truncate">Reward Partners</Link>
             </Button>
           </div>
         </div>

@@ -86,19 +86,19 @@ export function About() {
               ))}
             </div>
 
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <Button className="h-11 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold px-5 shadow-sm" asChild>
-                <Link href="/#contact">
-                  Organise a Drive
-                  <ArrowRight className="ml-2 w-4 h-4" />
+            <div className="mt-8 grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5 sm:gap-3 max-w-sm sm:max-w-none">
+              <Button className="w-full sm:w-auto h-11 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-xs sm:text-sm font-semibold px-3 sm:px-5 shadow-sm" asChild>
+                <Link href="/#contact" className="truncate">
+                  Organise Drive
+                  <ArrowRight className="ml-1 sm:ml-2 w-3.5 h-3.5 shrink-0" />
                 </Link>
               </Button>
               <Button
                 variant="outline"
-                className="h-11 rounded-xl border-border hover:border-primary/30 text-foreground text-sm font-medium px-5 bg-transparent"
+                className="w-full sm:w-auto h-11 rounded-xl border-border hover:border-primary/30 text-foreground text-xs sm:text-sm font-medium px-3 sm:px-5 bg-transparent"
                 asChild
               >
-                <Link href="/about">Learn Our Story</Link>
+                <Link href="/about" className="truncate">Learn Our Story</Link>
               </Button>
             </div>
           </motion.div>

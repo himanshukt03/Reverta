@@ -46,22 +46,23 @@ export function Hero() {
             Effortless e-waste collection drives for schools, apartment societies, and workplaces with verified partner handover.
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3">
+          {/* Side-by-Side Action Buttons on Mobile */}
+          <div className="mt-6 grid grid-cols-2 gap-2.5 w-full">
             <Button
-              className="h-12 px-7 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold shadow-md shadow-primary/20 inline-flex items-center gap-2"
+              className="w-full h-11 px-2 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-semibold shadow-md shadow-primary/20 inline-flex items-center justify-center gap-1.5"
               asChild
             >
-              <Link href="#contact">
+              <Link href="#contact" className="whitespace-nowrap">
                 Organise a Drive
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5 shrink-0" />
               </Link>
             </Button>
             <Button
               variant="outline"
-              className="h-12 px-5 rounded-full border border-border bg-card/60 backdrop-blur-sm text-foreground text-xs font-medium"
+              className="w-full h-11 px-2 rounded-full border border-border bg-card/70 backdrop-blur-sm text-foreground text-xs font-medium hover:bg-muted text-center flex items-center justify-center"
               asChild
             >
-              <Link href="/schools-communities">
+              <Link href="/schools-communities" className="whitespace-nowrap truncate">
                 Schools & Communities
               </Link>
             </Button>

@@ -76,15 +76,15 @@ export function Impact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 rounded-3xl bg-card border border-border p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6"
+          className="mt-12 rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
         >
           <div className="max-w-xl">
-            <h3 className="text-2xl font-bold text-foreground">Make an impact in your neighborhood</h3>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground">Make an impact in your neighborhood</h3>
+            <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
               A single weekend drive in your school or apartment complex can safely divert hundreds of kilograms of electronics from local landfills.
             </p>
           </div>
-          <Button size="lg" className="rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 flex-shrink-0" asChild>
+          <Button size="lg" className="w-full sm:w-auto rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 flex-shrink-0" asChild>
             <Link href="/#contact">
               Plan a Drive
               <ArrowRight className="ml-2 w-4 h-4" />
