@@ -100,20 +100,20 @@ async function generateOgImage() {
   </text>
 
   <!-- Subtle Divider Line -->
-  <line x1="380" y1="465" x2="820" y2="465" stroke="#10b981" stroke-opacity="0.25" stroke-width="1"/>
+  <line x1="320" y1="465" x2="880" y2="465" stroke="#10b981" stroke-opacity="0.25" stroke-width="1"/>
 
-  <!-- Footer Metadata (reverta.in · Bengaluru · Verified Recycler Coordination) -->
+  <!-- Footer Metadata (reverta.in · Bengaluru · hello@reverta.in) -->
   <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Plus Jakarta Sans', Helvetica, Arial, sans-serif" font-size="17" font-weight="500">
     <!-- Domain -->
     <text x="360" y="520" text-anchor="middle" fill="#34D399" font-weight="600">reverta.in</text>
-    <circle cx="455" cy="514" r="3" fill="#10B981" fill-opacity="0.6"/>
+    <circle cx="460" cy="514" r="3" fill="#10B981" fill-opacity="0.6"/>
     
     <!-- Location -->
     <text x="600" y="520" text-anchor="middle" fill="#94A3B8">Bengaluru, Karnataka</text>
-    <circle cx="745" cy="514" r="3" fill="#10B981" fill-opacity="0.6"/>
+    <circle cx="740" cy="514" r="3" fill="#10B981" fill-opacity="0.6"/>
 
-    <!-- Positioning -->
-    <text x="855" y="520" text-anchor="middle" fill="#94A3B8">Verified Partner Coordination</text>
+    <!-- Contact Email -->
+    <text x="840" y="520" text-anchor="middle" fill="#34D399" font-weight="600">hello@reverta.in</text>
   </g>
 
 </svg>
