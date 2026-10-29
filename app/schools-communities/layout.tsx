@@ -18,9 +18,13 @@ export const metadata: Metadata = {
         url: "https://reverta.in/og-image.png",
         width: 1200,
         height: 630,
+        type: "image/png",
         alt: "School and community e-waste collection drive",
       },
     ],
+  },
+  other: {
+    "og:logo": "https://reverta.in/logos/reverta_iconBlack.png",
   },
   twitter: {
     card: "summary_large_image",

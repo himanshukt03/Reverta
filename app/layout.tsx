@@ -13,7 +13,10 @@ const geistMono = Geist_Mono({
   variable: "--font-mono",
 })
 
-const siteUrl = "https://reverta.in"
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://reverta.in")
+
 const companyName = "Reverta Sustainable Solutions"
 const companyLegalName = "Reverta Sustainable Solutions Private Limited"
 const companyTagline = "E-Waste Awareness & Collection Coordination"
@@ -63,6 +66,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
+        type: "image/png",
         alt: `${companyName} | E-Waste Awareness & Collection Coordination`,
       },
     ],
@@ -75,6 +79,12 @@ export const metadata: Metadata = {
     description:
       "Reverta coordinates community collection drives and connects e-waste to verified downstream partners.",
     images: [`${siteUrl}/og-image.png`],
+  },
+  other: {
+    "og:logo": `${siteUrl}/logos/reverta_iconBlack.png`,
+    "og:image:type": "image/png",
+    "og:image:width": "1200",
+    "og:image:height": "630",
   },
   robots: {
     index: true,
@@ -203,6 +213,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Reverta" />
+        <meta property="og:logo" content={`${siteUrl}/logos/reverta_iconBlack.png`} />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
