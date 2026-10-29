@@ -7,113 +7,95 @@ async function generateOgImage() {
   const logoBase64 = fs.readFileSync(logoPath).toString('base64');
   const logoDataUri = `data:image/png;base64,${logoBase64}`;
 
-  // 1200 x 630 Open Graph canvas
+  // 1200 x 630 Canvas
   const width = 1200;
   const height = 630;
 
-  // Logo aspect ratio is 2441 x 719 (~3.395:1)
-  const logoW = 420;
-  const logoH = Math.round(logoW / (2441 / 719)); // ~124px
-  const logoX = Math.round((width - logoW) / 2);
-  const logoY = 90;
+  // Logo: 540px wide, aspect ratio ~3.395 (height = 159px)
+  const logoW = 520;
+  const logoH = Math.round(logoW / (2441 / 719)); // 153px
+  const logoX = Math.round((width - logoW) / 2); // 340px
+  const logoY = 65;
 
   const svg = `
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <!-- Background Gradient -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#041a13"/>
-      <stop offset="50%" stop-color="#06241a"/>
-      <stop offset="100%" stop-color="#03130e"/>
-    </linearGradient>
-
-    <!-- Top Accent Bar Gradient -->
-    <linearGradient id="topBarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Crisp top accent gradient -->
+    <linearGradient id="topBar" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#059669"/>
-      <stop offset="50%" stop-color="#34D399"/>
+      <stop offset="50%" stop-color="#10B981"/>
       <stop offset="100%" stop-color="#059669"/>
     </linearGradient>
 
-    <!-- Central Radial Glow -->
-    <radialGradient id="centerGlow" cx="50%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#059669" stop-opacity="0.22"/>
-      <stop offset="60%" stop-color="#059669" stop-opacity="0.04"/>
-      <stop offset="100%" stop-color="#041a13" stop-opacity="0"/>
-    </radialGradient>
-
-    <!-- Subtle Grid Pattern -->
-    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#10b981" stroke-width="1" stroke-opacity="0.04"/>
-    </pattern>
+    <!-- Clean, subtle premium background gradient matching website footer (No AI slop / no cloudy glow) -->
+    <linearGradient id="cleanBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0F1722"/>
+      <stop offset="100%" stop-color="#090E15"/>
+    </linearGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="${width}" height="${height}" fill="url(#bgGrad)"/>
-  <rect width="${width}" height="${height}" fill="url(#gridPattern)"/>
-  <rect width="${width}" height="${height}" fill="url(#centerGlow)"/>
+  <!-- Clean dark solid background -->
+  <rect width="${width}" height="${height}" fill="url(#cleanBg)"/>
 
-  <!-- Top Accent Highlight Bar (Like reference card) -->
-  <rect x="0" y="0" width="${width}" height="6" fill="url(#topBarGrad)"/>
+  <!-- Top accent line (4px) -->
+  <rect x="0" y="0" width="${width}" height="5" fill="url(#topBar)"/>
 
-  <!-- Subtle Outer Border inside canvas -->
-  <rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="0" fill="none" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.15"/>
-
-  <!-- Reverta Full White Logo -->
+  <!-- Reverta Logo in crisp white -->
   <image href="${logoDataUri}" x="${logoX}" y="${logoY}" width="${logoW}" height="${logoH}" preserveAspectRatio="xMidYMid meet" />
 
-  <!-- Slogan / Tagline in Emerald Green -->
+  <!-- Big Bold White Tagline -->
   <text 
     x="600" 
-    y="278" 
+    y="280" 
     text-anchor="middle" 
-    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Plus Jakarta Sans', Helvetica, Arial, sans-serif" 
-    font-size="28" 
+    font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif" 
+    font-size="36" 
     font-weight="700" 
-    letter-spacing="0.5" 
-    fill="#34D399"
+    letter-spacing="0.2" 
+    fill="#FFFFFF"
   >
     Responsible recycling, made simple.
   </text>
 
-  <!-- Short Description (2 Lines) -->
+  <!-- Big Clear White Description -->
   <text 
     x="600" 
-    y="350" 
+    y="352" 
     text-anchor="middle" 
-    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Plus Jakarta Sans', Helvetica, Arial, sans-serif" 
-    font-size="22" 
-    font-weight="400" 
-    fill="#E2E8F0"
+    font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif" 
+    font-size="28" 
+    font-weight="500" 
+    fill="#FFFFFF"
   >
     Effortless e-waste collection drives &amp; awareness campaigns for schools,
   </text>
   <text 
     x="600" 
-    y="386" 
+    y="396" 
     text-anchor="middle" 
-    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Plus Jakarta Sans', Helvetica, Arial, sans-serif" 
-    font-size="22" 
-    font-weight="400" 
-    fill="#E2E8F0"
+    font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif" 
+    font-size="28" 
+    font-weight="500" 
+    fill="#FFFFFF"
   >
     residential societies, and workplaces with verified partner handover.
   </text>
 
-  <!-- Subtle Divider Line -->
-  <line x1="320" y1="465" x2="880" y2="465" stroke="#10b981" stroke-opacity="0.25" stroke-width="1"/>
+  <!-- Subtle divider line -->
+  <line x1="280" y1="470" x2="920" y2="470" stroke="#10B981" stroke-opacity="0.35" stroke-width="1.5"/>
 
-  <!-- Footer Metadata (reverta.in · Bengaluru · hello@reverta.in) -->
-  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Plus Jakarta Sans', Helvetica, Arial, sans-serif" font-size="17" font-weight="500">
+  <!-- Footer Row (reverta.in · Bengaluru, Karnataka · hello@reverta.in) - All readable and white -->
+  <g font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="22" font-weight="600">
     <!-- Domain -->
-    <text x="360" y="520" text-anchor="middle" fill="#34D399" font-weight="600">reverta.in</text>
-    <circle cx="460" cy="514" r="3" fill="#10B981" fill-opacity="0.6"/>
+    <text x="320" y="525" text-anchor="middle" fill="#FFFFFF">reverta.in</text>
+    <circle cx="435" cy="518" r="3.5" fill="#10B981"/>
     
     <!-- Location -->
-    <text x="600" y="520" text-anchor="middle" fill="#94A3B8">Bengaluru, Karnataka</text>
-    <circle cx="740" cy="514" r="3" fill="#10B981" fill-opacity="0.6"/>
+    <text x="600" y="525" text-anchor="middle" fill="#FFFFFF">Bengaluru, Karnataka</text>
+    <circle cx="765" cy="518" r="3.5" fill="#10B981"/>
 
     <!-- Contact Email -->
-    <text x="840" y="520" text-anchor="middle" fill="#34D399" font-weight="600">hello@reverta.in</text>
+    <text x="880" y="525" text-anchor="middle" fill="#FFFFFF">hello@reverta.in</text>
   </g>
 
 </svg>
@@ -123,15 +105,17 @@ async function generateOgImage() {
   const outputPath = path.resolve('public/og-image.png');
   const outputJpgPath = path.resolve('public/og-image.jpg');
 
+  // Generate PNG
   await sharp(svgBuffer)
-    .png({ quality: 95, compressionLevel: 9 })
+    .png({ quality: 100, compressionLevel: 8 })
     .toFile(outputPath);
 
+  // Generate JPEG (very fast for WhatsApp preview)
   await sharp(svgBuffer)
-    .jpeg({ quality: 90 })
+    .jpeg({ quality: 92, chromaSubsampling: '4:4:4' })
     .toFile(outputJpgPath);
 
-  console.log('OG images successfully generated at:');
+  console.log('Regenerated OG images:');
   console.log('-', outputPath, (fs.statSync(outputPath).size / 1024).toFixed(1), 'KB');
   console.log('-', outputJpgPath, (fs.statSync(outputJpgPath).size / 1024).toFixed(1), 'KB');
 }
