@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react"
 
 export function Hero() {
   return (
-    <section id="home" className="relative min-h-[94dvh] flex flex-col justify-center overflow-hidden">
+    <section id="home" className="relative overflow-hidden lg:min-h-[90vh] lg:flex lg:flex-col lg:justify-center">
       {/* Background Subtle Gradient & Pattern */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
 
@@ -18,24 +18,25 @@ export function Hero() {
         }}
       />
 
+      {/* Floating Blobs (Hidden on mobile to eliminate GPU compositor scroll jitter) */}
       <motion.div
-        animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
+        animate={{ y: [0, -20, 0], scale: [1, 1.08, 1] }}
         transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-        className="absolute top-1/4 -left-20 w-80 h-80 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full blur-3xl pointer-events-none"
+        className="hidden sm:block absolute top-1/4 -left-20 w-80 h-80 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full blur-3xl pointer-events-none will-change-transform"
       />
       <motion.div
-        animate={{ y: [0, 20, 0], scale: [1, 0.9, 1] }}
+        animate={{ y: [0, 20, 0], scale: [1, 0.92, 1] }}
         transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-1/4 -right-20 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-secondary/5 rounded-full blur-3xl pointer-events-none"
+        className="hidden sm:block absolute bottom-1/4 -right-20 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-secondary/5 rounded-full blur-3xl pointer-events-none will-change-transform"
       />
 
       {/* ====== MOBILE HERO ====== */}
-      <div className="lg:hidden relative z-10 flex flex-col justify-start px-6 pt-28 pb-0">
+      <div className="lg:hidden relative z-10 flex flex-col justify-start px-5 sm:px-6 pt-24 sm:pt-28 pb-8 sm:pb-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-md"
+          transition={{ duration: 0.45 }}
+          className="max-w-md mx-auto w-full"
         >
           <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground leading-[1.16] tracking-tight">
             <span className="block">Responsible recycling,</span>
@@ -71,16 +72,17 @@ export function Hero() {
 
         {/* Arched / Dome Hero Image (Only on Mobile) */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
           className="mt-8 sm:mt-10 w-full max-w-md mx-auto"
         >
-          <div className="relative aspect-[4/3] rounded-t-[44px] sm:rounded-t-[52px] overflow-hidden shadow-2xl border-t border-x border-border/70 bg-card">
+          <div className="relative aspect-[4/3] rounded-[36px] sm:rounded-[44px] overflow-hidden shadow-xl border border-border/70 bg-card transform-gpu">
             <img
               src="/reverta-hero.jpg"
               alt="Responsible recycling made simple with Reverta"
               className="w-full h-full object-cover object-center"
+              loading="eager"
             />
           </div>
         </motion.div>
@@ -129,12 +131,12 @@ export function Hero() {
               className="relative"
             >
               <div className="relative">
-                {/* Image without white shade overlay */}
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-border/50">
                   <img
                     src="/reverta-hero.jpg"
                     alt="Responsible recycling made simple with Reverta"
                     className="w-full h-full object-cover"
+                    loading="eager"
                   />
                 </div>
               </div>

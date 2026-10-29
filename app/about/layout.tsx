@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://reverta.in/people-recycling.jpg",
-        width: 1600,
-        height: 900,
-        alt: "Reverta Sustainable Solutions Team & Community",
+        url: "https://reverta.in/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "About Reverta Sustainable Solutions",
       },
     ],
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "About Us | Reverta Sustainable Solutions",
     description:
       "Learn about Reverta's grassroots e-waste collection facilitation and verified partner network.",
-    images: ["https://reverta.in/people-recycling.jpg"],
+    images: ["https://reverta.in/og-image.png"],
   },
 }
 

@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://reverta.in/people-recycling.jpg",
-        width: 1600,
-        height: 900,
+        url: "https://reverta.in/og-image.png",
+        width: 1200,
+        height: 630,
         alt: "Reverta E-Waste Guides and Resources",
       },
     ],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Resource Center | Reverta Sustainable Solutions",
     description:
       "Guides and checklists for organising electronic waste drives and safe device handling.",
-    images: ["https://reverta.in/people-recycling.jpg"],
+    images: ["https://reverta.in/og-image.png"],
   },
 }
 

@@ -60,10 +60,10 @@ export const metadata: Metadata = {
     siteName: companyName,
     images: [
       {
-        url: `${siteUrl}/people-recycling.jpg`,
-        width: 1600,
-        height: 900,
-        alt: `${companyName} community e-waste collection and awareness initiative`,
+        url: `${siteUrl}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: `${companyName} | E-Waste Awareness & Collection Coordination`,
       },
     ],
     locale: "en_IN",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     title: `${companyName} | E-Waste Awareness & Collection Coordination`,
     description:
       "Reverta coordinates community collection drives and connects e-waste to verified downstream partners.",
-    images: [`${siteUrl}/people-recycling.jpg`],
+    images: [`${siteUrl}/og-image.png`],
   },
   robots: {
     index: true,
@@ -110,7 +110,7 @@ export default function RootLayout({
         legalName: companyLegalName,
         url: siteUrl,
         logo: `${siteUrl}/logos/reverta_fullLogoBlack.png`,
-        image: `${siteUrl}/people-recycling.jpg`,
+        image: `${siteUrl}/og-image.png`,
         email: companyEmail,
         telephone: companyPhone,
         slogan: companyTagline,
@@ -144,7 +144,7 @@ export default function RootLayout({
         "@type": "LocalBusiness",
         "@id": `${siteUrl}/#localbusiness`,
         name: companyName,
-        image: `${siteUrl}/people-recycling.jpg`,
+        image: `${siteUrl}/og-image.png`,
         telephone: companyPhone,
         email: companyEmail,
         priceRange: "₹₹",

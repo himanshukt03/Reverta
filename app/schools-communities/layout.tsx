@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://reverta.in/people-recycling.jpg",
-        width: 1600,
-        height: 900,
+        url: "https://reverta.in/og-image.png",
+        width: 1200,
+        height: 630,
         alt: "School and community e-waste collection drive",
       },
     ],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Schools & Communities | Reverta Sustainable Solutions",
     description:
       "Host an effortless e-waste collection campaign with student activities, society drop-off bins, and verified downstream recycling.",
-    images: ["https://reverta.in/people-recycling.jpg"],
+    images: ["https://reverta.in/og-image.png"],
   },
 }
 
