@@ -79,7 +79,7 @@ export function Hero() {
         >
           <div className="relative aspect-[4/3] rounded-[36px] sm:rounded-[44px] overflow-hidden shadow-xl border border-border/70 bg-card transform-gpu">
             <img
-              src="/reverta-hero.jpg"
+              src="/reverta_hero.jpeg"
               alt="Responsible recycling made simple with Reverta"
               className="w-full h-full object-cover object-center"
               loading="eager"
@@ -133,7 +133,7 @@ export function Hero() {
               <div className="relative">
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-border/50">
                   <img
-                    src="/reverta-hero.jpg"
+                    src="/reverta_hero.jpeg"
                     alt="Responsible recycling made simple with Reverta"
                     className="w-full h-full object-cover"
                     loading="eager"
