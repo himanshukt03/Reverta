@@ -1,11 +1,12 @@
 "use client"
 
+import { useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { FloatingButtons } from "@/components/floating-buttons"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import {
   Users,
   Handshake,
@@ -24,6 +25,8 @@ import {
   FileText,
   Calendar,
   Award,
+  X,
+  Maximize2,
 } from "lucide-react"
 
 const services = [
@@ -61,6 +64,12 @@ const acceptedItems = [
 ]
 
 export default function AboutPage() {
+  const [selectedAward, setSelectedAward] = useState<{
+    image: string
+    title: string
+    subtitle: string
+  } | null>(null)
+
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
@@ -183,20 +192,34 @@ export default function AboutPage() {
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Awards & Honors</h2>
             <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground max-w-md mx-auto">
-              Recognitions and certificates earned by Reverta and its initiative partners.
+              Recognitions and certificates earned by Reverta and its initiative partners. Click to view full certificate.
             </p>
           </div>
 
-          {/* Responsive grid designed to easily fit more certificates side-by-side */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 justify-center max-w-4xl mx-auto">
-            <div className="group rounded-2xl p-3 bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col">
+          {/* Centered cards container (centers single item, expands nicely to 2 or 3 items) */}
+          <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
+            <button
+              type="button"
+              onClick={() =>
+                setSelectedAward({
+                  image: "/reverta-recognition-certificate.jpeg",
+                  title: "Startup's Clarity Challenge 2026",
+                  subtitle: "Top-Tier Ranking · Reverta + NGreenTech Program",
+                })
+              }
+              className="group w-full max-w-xs rounded-2xl p-3 bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/50 transition-all text-left flex flex-col cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40"
+            >
               <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-muted/30 border border-border/40">
                 <img
                   src="/reverta-recognition-certificate.jpeg"
                   alt="Reverta and NGreenTech E-Waste Program Certificate of Recognition"
-                  className="w-full h-full object-contain p-1 group-hover:scale-[1.02] transition-transform duration-300"
+                  className="w-full h-full object-contain p-1 group-hover:scale-[1.03] transition-transform duration-300"
                   loading="lazy"
                 />
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white text-xs font-medium backdrop-blur-[1px]">
+                  <Maximize2 className="w-4 h-4" />
+                  <span>Click to expand</span>
+                </div>
               </div>
               <div className="mt-3 px-1 text-center">
                 <p className="text-xs font-semibold text-foreground leading-snug">
@@ -206,10 +229,51 @@ export default function AboutPage() {
                   Top-Tier Ranking · Reverta + NGreenTech Program
                 </p>
               </div>
-            </div>
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Lightbox / Modal Modal for Certificate View */}
+      <AnimatePresence>
+        {selectedAward && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-sm"
+            onClick={() => setSelectedAward(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-3xl max-h-[90vh] bg-card rounded-2xl sm:rounded-3xl border border-border shadow-2xl overflow-hidden flex flex-col"
+            >
+              <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 border-b border-border/60">
+                <div>
+                  <h3 className="text-sm sm:text-base font-semibold text-foreground">{selectedAward.title}</h3>
+                  <p className="text-xs text-muted-foreground">{selectedAward.subtitle}</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedAward(null)}
+                  className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                  aria-label="Close dialog"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="relative p-2 sm:p-4 bg-muted/20 flex-1 overflow-auto flex items-center justify-center">
+                <img
+                  src={selectedAward.image}
+                  alt={selectedAward.title}
+                  className="max-h-[72vh] w-auto max-w-full object-contain rounded-lg"
+                />
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* CTA */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20 border-t border-border/50">
