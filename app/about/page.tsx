@@ -173,36 +173,39 @@ export default function AboutPage() {
       </section>
 
       {/* Recognition & Awards */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-border/50 bg-gradient-to-b from-background via-primary/[0.02] to-background">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8 sm:mb-10">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <div className="w-8 h-0.5 bg-primary rounded-full" />
+      <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 border-t border-border/50 bg-gradient-to-b from-background via-primary/[0.02] to-background">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-2 mb-2.5">
+              <div className="w-6 h-0.5 bg-primary rounded-full" />
               <span className="text-xs font-semibold text-primary uppercase tracking-wider">Recognition</span>
-              <div className="w-8 h-0.5 bg-primary rounded-full" />
+              <div className="w-6 h-0.5 bg-primary rounded-full" />
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Award & Recognition</h2>
-            <p className="mt-2 text-sm text-muted-foreground max-w-lg mx-auto">
-              Recognized for operational clarity and impact across community e-waste collection initiatives.
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Awards & Honors</h2>
+            <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground max-w-md mx-auto">
+              Recognitions and certificates earned by Reverta and its initiative partners.
             </p>
           </div>
 
-          <div className="relative rounded-2xl sm:rounded-3xl p-3 sm:p-5 bg-card border border-border shadow-lg shadow-black/5 hover:border-primary/40 transition-colors">
-            <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full rounded-xl sm:rounded-2xl overflow-hidden bg-muted/40 border border-border/40">
-              <img
-                src="/reverta-recognition-certificate.jpeg"
-                alt="Reverta and NGreenTech E-Waste Program Certificate of Recognition"
-                className="w-full h-full object-contain"
-                loading="lazy"
-              />
-            </div>
-            <div className="mt-4 px-2 sm:px-3 text-center">
-              <p className="text-xs sm:text-sm font-semibold text-foreground">
-                Startup&apos;s Clarity Challenge 2026 · Top-Tier Ranking
-              </p>
-              <p className="text-xs text-muted-foreground mt-1">
-                Honored for the Reverta + NGreenTech E-Waste Initiative
-              </p>
+          {/* Responsive grid designed to easily fit more certificates side-by-side */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 justify-center max-w-4xl mx-auto">
+            <div className="group rounded-2xl p-3 bg-card border border-border shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col">
+              <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-muted/30 border border-border/40">
+                <img
+                  src="/reverta-recognition-certificate.jpeg"
+                  alt="Reverta and NGreenTech E-Waste Program Certificate of Recognition"
+                  className="w-full h-full object-contain p-1 group-hover:scale-[1.02] transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+              <div className="mt-3 px-1 text-center">
+                <p className="text-xs font-semibold text-foreground leading-snug">
+                  Startup&apos;s Clarity Challenge 2026
+                </p>
+                <p className="text-[11px] text-muted-foreground mt-0.5">
+                  Top-Tier Ranking · Reverta + NGreenTech Program
+                </p>
+              </div>
             </div>
           </div>
         </div>
